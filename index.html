@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Developer portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f1220;--surface:#181c30;--surface2:#212640;--line:#2c3256;
+  --text:#eceefb;--muted:#9aa1c7;--accent:#ffb454;--accent-ink:#1b1305;
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --body:'DM Sans','Segoe UI',system-ui,sans-serif;
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#f5f4fb;--surface:#ffffff;--surface2:#ecebf7;--line:#d9d7ee;
+  --text:#171a33;--muted:#59608a;--accent:#d9730d;--accent-ink:#fff;color-scheme:light;
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    --bg:#f5f4fb;--surface:#ffffff;--surface2:#ecebf7;--line:#d9d7ee;
+    --text:#171a33;--muted:#59608a;--accent:#d9730d;--accent-ink:#fff;color-scheme:light;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.brand{font:700 18px var(--display);letter-spacing:-.01em;text-decoration:none}
+.iconbtn{background:var(--surface);border:1px solid var(--line);color:var(--text);border-radius:999px;padding:8px 14px;font:500 14px var(--body);cursor:pointer}
+.iconbtn:hover{background:var(--surface2)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;padding:40px 0 48px}
+.avatar{width:200px;height:200px;border-radius:44% 56% 52% 48%/50% 44% 56% 50%;object-fit:cover;background:var(--surface2);border:3px solid var(--accent);animation:morph 14s ease-in-out infinite}
+@keyframes morph{50%{border-radius:56% 44% 46% 54%/46% 56% 44% 54%}}
+.hero h1{font:800 clamp(40px,7vw,84px)/.98 var(--display);letter-spacing:-.03em;margin:0 0 14px}
+.hero .handle{color:var(--accent);font:500 18px var(--body);margin:0 0 10px}
+.hero p.bio{color:var(--muted);font-size:19px;max-width:56ch;margin:0 0 22px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid var(--line);background:var(--surface);padding:6px 14px;border-radius:999px;font-size:14px;color:var(--muted);text-decoration:none}
+a.chip:hover{border-color:var(--accent);color:var(--text)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:40px}
+.stat{background:var(--surface);padding:18px 22px}
+.stat b{display:block;font:800 32px var(--display);letter-spacing:-.02em}
+.stat span{color:var(--muted);font-size:14px}
+
+/* tabs */
+.tabs{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tabs button{position:relative;background:none;border:0;color:var(--muted);font:500 16px var(--body);padding:16px 20px;cursor:pointer;white-space:nowrap}
+.tabs button[aria-selected="true"]{color:var(--text)}
+.tabs button:hover{color:var(--text)}
+.ink{position:absolute;bottom:0;left:0;height:3px;width:0;background:var(--accent);border-radius:3px 3px 0 0;transition:transform .35s cubic-bezier(.3,.8,.3,1),width .35s cubic-bezier(.3,.8,.3,1)}
+.tabs{position:sticky}
+.panel{padding:36px 0 80px}
+.panel[hidden]{display:none}
+
+/* projects */
+.tools{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px;align-items:center}
+.tools input,.tools select{background:var(--surface);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:10px 14px;font:400 15px var(--body)}
+.tools input{flex:1;min-width:200px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.filters button{background:none;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:5px 14px;font:500 14px var(--body);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:22px}
+.card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.shot{aspect-ratio:2/1;background:var(--surface2);display:grid;place-items:center;font:800 56px var(--display);color:var(--line);overflow:hidden}
+.shot img{width:100%;height:100%;object-fit:cover;display:block}
+.card .body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{margin:0;font:700 20px var(--display);letter-spacing:-.01em}
+.card p{margin:0;color:var(--muted);font-size:15px;flex:1}
+.meta{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted);align-items:center}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;background:var(--lc,#888)}
+.topics{display:flex;flex-wrap:wrap;gap:6px}
+.topics span{background:var(--surface2);border-radius:6px;padding:2px 8px;font-size:12px;color:var(--muted)}
+
+/* skills */
+.bar{display:flex;height:22px;border-radius:11px;overflow:hidden;margin-bottom:28px;background:var(--surface2)}
+.bar i{display:block;height:100%;transform-origin:left;animation:grow .9s cubic-bezier(.3,.8,.3,1) both}
+@keyframes grow{from{transform:scaleX(0)}}
+.langs{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.lang{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.lang b{font:700 18px var(--display)}
+.lang small{display:block;color:var(--muted)}
+
+/* activity */
+.feed{list-style:none;margin:0;padding:0 0 0 22px;border-left:2px solid var(--line);max-width:760px}
+.feed li{position:relative;padding:0 0 22px 20px}
+.feed li::before{content:"";position:absolute;left:-29px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)}
+.feed small{color:var(--muted);display:block}
+.feed a{text-decoration:none;color:var(--accent)}
+
+/* about */
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:32px}
+.about .box{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px}
+.about h2{font:700 26px var(--display);margin:0 0 12px;letter-spacing:-.01em}
+.about ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.cta{display:inline-block;background:var(--accent);color:var(--accent-ink);font-weight:700;border-radius:999px;padding:12px 24px;text-decoration:none;margin-top:10px}
+
+.state{padding:60px 0;text-align:center;color:var(--muted)}
+.state input{background:var(--surface);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:10px 14px;font:400 15px var(--body);margin-right:8px}
+.skeleton{height:280px;border-radius:18px;background:linear-gradient(100deg,var(--surface) 30%,var(--surface2) 50%,var(--surface) 70%);background-size:300% 100%;animation:sh 1.4s infinite}
+@keyframes sh{to{background-position:-100% 0}}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:14px}
+
+@media (max-width:720px){
+  .hero{grid-template-columns:1fr;text-align:left;gap:24px}
+  .avatar{width:140px;height:140px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .about{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="brand" href="#projects" id="brand">portfolio</a>
+    <button class="iconbtn" id="theme" aria-label="Switch colour theme">Theme</button>
+  </div>
+  <div id="app"><div class="skeleton" style="height:240px"></div></div>
+</div>
+
+<script>
+/* ============ SETTINGS: change this to your GitHub username ============ */
+const DEFAULT_USER = 'octocat';
+/* You can also preview anyone with  index.html?user=their-name  */
+/* Optional: list repo names to always show first, e.g. ['my-best-repo'] */
+const FEATURED = [];
+/* Optional: repos you never want shown */
+const HIDDEN = [];
+/* ====================================================================== */
+
+const LC = {JavaScript:'#f1e05a',TypeScript:'#3178c6',Python:'#3572a5',HTML:'#e34c26',CSS:'#7b5fd0',Java:'#b07219',C:'#8a8a8a','C++':'#f34b7d','C#':'#2f9a3a',Go:'#00add8',Rust:'#dea584',Ruby:'#cc342d',PHP:'#4f5d95',Swift:'#f05138',Kotlin:'#a97bff',Dart:'#00b4ab',Shell:'#89e051',Vue:'#41b883',Jupyter:'#da5b0b','Jupyter Notebook':'#da5b0b'};
+const col = l => LC[l] || '#8b93c4';
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const num = n => n >= 1000 ? (n/1000).toFixed(1).replace('.0','') + 'k' : n;
+const ago = d => {
+  const s = (Date.now() - new Date(d)) / 1000, u = [['year',31536000],['month',2592000],['week',604800],['day',86400],['hour',3600],['minute',60]];
+  for (const [n, v] of u) if (s >= v) { const k = Math.floor(s / v); return k + ' ' + n + (k > 1 ? 's' : '') + ' ago'; }
+  return 'just now';
+};
+
+const params = new URLSearchParams(location.search);
+const USER = (params.get('user') || DEFAULT_USER).trim();
+
+/* theme */
+const root = document.documentElement;
+try { const t = localStorage.getItem('theme'); if (t) root.dataset.theme = t; } catch (e) {}
+$('#theme').onclick = () => {
+  const dark = root.dataset.theme ? root.dataset.theme === 'dark' : !matchMedia('(prefers-color-scheme:light)').matches;
+  root.dataset.theme = dark ? 'light' : 'dark';
+  try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+};
+
+/* data (cached for 10 min so you stay under GitHub’s rate limit) */
+async function gh(path) {
+  const key = 'gh:' + path;
+  try { const c = JSON.parse(sessionStorage.getItem(key)); if (c && Date.now() - c.t < 6e5) return c.d; } catch (e) {}
+  const r = await fetch('https://api.github.com' + path, {headers: {Accept: 'application/vnd.github+json'}});
+  if (r.status === 404) throw new Error('notfound');
+  if (r.status === 403 || r.status === 429) throw new Error('ratelimit');
+  if (!r.ok) throw new Error('http');
+  const d = await r.json();
+  try { sessionStorage.setItem(key, JSON.stringify({t: Date.now(), d})); } catch (e) {}
+  return d;
+}
+
+function problem(kind) {
+  const msg = kind === 'notfound'
+    ? 'No GitHub account named “' + esc(USER) + '”. Check the spelling and try again.'
+    : kind === 'ratelimit'
+    ? 'GitHub’s hourly limit for anonymous requests was reached. Try again in a few minutes.'
+    : 'GitHub couldn’t be reached. Check your connection and reload.';
+  $('#app').innerHTML = '<div class="state"><p>' + msg + '</p><form id="f"><input id="u" placeholder="GitHub username" aria-label="GitHub username"><button class="iconbtn">Load profile</button></form></div>';
+  $('#f').onsubmit = e => { e.preventDefault(); const v = $('#u').value.trim(); if (v) location.search = '?user=' + encodeURIComponent(v); };
+}
+
+async function init() {
+  let user, repos, events;
+  try {
+    [user, repos] = await Promise.all([gh('/users/' + USER), gh('/users/' + USER + '/repos?per_page=100&sort=pushed')]);
+    events = await gh('/users/' + USER + '/events/public?per_page=30').catch(() => []);
+  } catch (e) { return problem(e.message); }
+
+  repos = repos.filter(r => !r.fork && !r.archived && !HIDDEN.includes(r.name) && r.name.toLowerCase() !== USER.toLowerCase());
+  const name = user.name || user.login;
+  document.title = name + ' · Portfolio';
+  $('#brand').textContent = name;
+  const stars = repos.reduce((a, r) => a + r.stargazers_count, 0);
+  const since = new Date(user.created_at).getFullYear();
+
+  const links = [
+    ['GitHub', user.html_url],
+    user.blog && ['Website', /^https?:/.test(user.blog) ? user.blog : 'https://' + user.blog],
+    user.twitter_username && ['Twitter', 'https://twitter.com/' + user.twitter_username],
+    user.email && ['Email', 'mailto:' + user.email]
+  ].filter(Boolean);
+
+  $('#app').innerHTML = `
+  <section class="hero">
+    <img class="avatar" src="${esc(user.avatar_url)}&s=400" alt="${esc(name)}’s profile photo">
+    <div>
+      <p class="handle">@${esc(user.login)}${user.hireable ? ' · open to work' : ''}</p>
+      <h1>${esc(name)}</h1>
+      <p class="bio">${esc(user.bio || 'Building things on GitHub.')}</p>
+      <div class="chips">
+        ${user.location ? '<span class="chip">' + esc(user.location) + '</span>' : ''}
+        ${user.company ? '<span class="chip">' + esc(user.company) + '</span>' : ''}
+        ${links.map(l => '<a class="chip" target="_blank" rel="noopener" href="' + esc(l[1]) + '">' + esc(l[0]) + '</a>').join('')}
+      </div>
+    </div>
+  </section>
+  <div class="stats">
+    <div class="stat"><b>${num(repos.length)}</b><span>Projects</span></div>
+    <div class="stat"><b>${num(stars)}</b><span>Stars earned</span></div>
+    <div class="stat"><b>${num(user.followers)}</b><span>Followers</span></div>
+    <div class="stat"><b>${since}</b><span>On GitHub since</span></div>
+  </div>
+  <nav class="tabs" role="tablist" aria-label="Portfolio sections">
+    <button role="tab" id="t-projects" data-tab="projects">Projects</button>
+    <button role="tab" id="t-skills" data-tab="skills">Languages</button>
+    <button role="tab" id="t-activity" data-tab="activity">Activity</button>
+    <button role="tab" id="t-about" data-tab="about">About</button>
+    <span class="ink" id="ink"></span>
+  </nav>
+  <section class="panel" id="p-projects" role="tabpanel"></section>
+  <section class="panel" id="p-skills" role="tabpanel"></section>
+  <section class="panel" id="p-activity" role="tabpanel"></section>
+  <section class="panel" id="p-about" role="tabpanel"></section>
+  <footer>Live data from the GitHub API · ${esc(user.login)}</footer>`;
+
+  renderProjects(repos);
+  renderLangs(repos);
+  renderActivity(events);
+  renderAbout(user, links, repos);
+  setupTabs();
+}
+
+function renderProjects(repos) {
+  const langs = [...new Set(repos.map(r => r.language).filter(Boolean))];
+  const el = $('#p-projects');
+  el.innerHTML = `
+    <div class="tools">
+      <input id="q" type="search" placeholder="Search projects" aria-label="Search projects">
+      <select id="sort" aria-label="Sort projects">
+        <option value="featured">Featured first</option><option value="stars">Most stars</option>
+        <option value="updated">Recently updated</option><option value="name">Name</option>
+      </select>
+    </div>
+    <div class="filters" id="flt"><button aria-pressed="true" data-l="">All</button>${langs.map(l => '<button aria-pressed="false" data-l="' + esc(l) + '">' + esc(l) + '</button>').join('')}</div>
+    <div class="grid" id="grid"></div>`;
+  let lang = '';
+  const draw = () => {
+    const q = $('#q').value.toLowerCase(), s = $('#sort').value;
+    let list = repos.filter(r => (!lang || r.language === lang) && (r.name + ' ' + (r.description || '') + ' ' + (r.topics || []).join(' ')).toLowerCase().includes(q));
+    const cmp = {
+      stars: (a, b) => b.stargazers_count - a.stargazers_count,
+      updated: (a, b) => new Date(b.pushed_at) - new Date(a.pushed_at),
+      name: (a, b) => a.name.localeCompare(b.name),
+      featured: (a, b) => (FEATURED.includes(b.name) - FEATURED.includes(a.name)) || (b.stargazers_count - a.stargazers_count)
+    };
+    list.sort(cmp[s]);
+    $('#grid').innerHTML = list.length ? list.map(card).join('') : '<div class="state">No projects match. Clear the search or pick another language.</div>';
+  };
+  $('#q').oninput = draw; $('#sort').onchange = draw;
+  $('#flt').onclick = e => {
+    const b = e.target.closest('button'); if (!b) return;
+    lang = b.dataset.l;
+    document.querySelectorAll('#flt button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    draw();
+  };
+  draw();
+}
+
+function card(r) {
+  const img = 'https://opengraph.githubassets.com/1/' + r.full_name;
+  const live = r.homepage && /^https?:/.test(r.homepage) ? r.homepage : '';
+  return `<a class="card" href="${esc(live || r.html_url)}" target="_blank" rel="noopener">
+    <div class="shot">${esc(r.name[0].toUpperCase())}<img src="${img}" loading="lazy" alt="" onerror="this.remove()"></div>
+    <div class="body">
+      <h3>${esc(r.name)}</h3>
+      <p>${esc(r.description || 'No description yet.')}</p>
+      ${(r.topics || []).length ? '<div class="topics">' + r.topics.slice(0, 4).map(t => '<span>' + esc(t) + '</span>').join('') + '</div>' : ''}
+      <div class="meta">
+        ${r.language ? '<span><i class="dot" style="--lc:' + col(r.language) + '"></i>' + esc(r.language) + '</span>' : ''}
+        <span>★ ${num(r.stargazers_count)}</span><span>Forks ${num(r.forks_count)}</span><span>Updated ${ago(r.pushed_at)}</span>
+        ${live ? '<span>Live demo</span>' : ''}
+      </div>
+    </div></a>`;
+}
+
+function renderLangs(repos) {
+  const c = {};
+  repos.forEach(r => { if (r.language) c[r.language] = (c[r.language] || 0) + 1; });
+  const e = Object.entries(c).sort((a, b) => b[1] - a[1]);
+  const total = e.reduce((a, x) => a + x[1], 0) || 1;
+  $('#p-skills').innerHTML = e.length
+    ? `<div class="bar" role="img" aria-label="Language share across projects">${e.map(([l, n]) => '<i title="' + esc(l) + '" style="width:' + (n / total * 100) + '%;background:' + col(l) + '"></i>').join('')}</div>
+       <div class="langs">${e.map(([l, n]) => '<div class="lang"><b><i class="dot" style="--lc:' + col(l) + '"></i>' + esc(l) + '</b><small>' + n + (n > 1 ? ' projects' : ' project') + ' · ' + Math.round(n / total * 100) + '%</small></div>').join('')}</div>`
+    : '<div class="state">No language data yet. Push some code and it will show up here.</div>';
+}
+
+function renderActivity(events) {
+  const t = {
+    PushEvent: e => 'Pushed ' + (e.payload.size || (e.payload.commits || []).length || 'some') + ' commit(s) to',
+    CreateEvent: e => 'Created ' + e.payload.ref_type + ' in',
+    WatchEvent: () => 'Starred',
+    ForkEvent: () => 'Forked',
+    PullRequestEvent: e => (e.payload.action === 'closed' && e.payload.pull_request?.merged ? 'Merged' : e.payload.action[0].toUpperCase() + e.payload.action.slice(1)) + ' a pull request in',
+    IssuesEvent: e => e.payload.action[0].toUpperCase() + e.payload.action.slice(1) + ' an issue in',
+    ReleaseEvent: () => 'Published a release in'
+  };
+  const items = events.filter(e => t[e.type]).slice(0, 15);
+  $('#p-activity').innerHTML = items.length
+    ? '<ul class="feed">' + items.map(e => '<li>' + esc(t[e.type](e)) + ' <a target="_blank" rel="noopener" href="https://github.com/' + esc(e.repo.name) + '">' + esc(e.repo.name) + '</a><small>' + ago(e.created_at) + '</small></li>').join('') + '</ul>'
+    : '<div class="state">No recent public activity.</div>';
+}
+
+function renderAbout(u, links, repos) {
+  const top = [...repos].sort((a, b) => b.stargazers_count - a.stargazers_count)[0];
+  $('#p-about').innerHTML = `<div class="about">
+    <div class="box"><h2>About</h2>
+      <p>${esc(u.bio || 'Add a bio on your GitHub profile and it will appear here.')}</p>
+      ${top ? '<p>Most starred project: <a href="' + esc(top.html_url) + '" target="_blank" rel="noopener"><b>' + esc(top.name) + '</b></a> with ' + num(top.stargazers_count) + ' stars.</p>' : ''}
+      <a class="cta" href="${esc(u.email ? 'mailto:' + u.email : u.html_url)}" target="_blank" rel="noopener">${u.email ? 'Send an email' : 'Follow on GitHub'}</a>
+    </div>
+    <div class="box"><h2>Find me</h2><ul>${links.map(l => '<li><a href="' + esc(l[1]) + '" target="_blank" rel="noopener">' + esc(l[0]) + '</a></li>').join('')}</ul></div>
+  </div>`;
+}
+
+function setupTabs() {
+  const btns = [...document.querySelectorAll('.tabs button')], ink = $('#ink');
+  const show = (name, push) => {
+    if (!btns.some(b => b.dataset.tab === name)) name = 'projects';
+    btns.forEach(b => {
+      const on = b.dataset.tab === name;
+      b.setAttribute('aria-selected', on);
+      b.tabIndex = on ? 0 : -1;
+      $('#p-' + b.dataset.tab).hidden = !on;
+      if (on) { ink.style.width = b.offsetWidth + 'px'; ink.style.transform = 'translateX(' + b.offsetLeft + 'px)'; }
+    });
+    if (push) history.replaceState(null, '', '#' + name);
+  };
+  btns.forEach((b, i) => {
+    b.onclick = () => show(b.dataset.tab, true);
+    b.onkeydown = e => {
+      const n = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (n) { const t = btns[(i + n + btns.length) % btns.length]; t.focus(); show(t.dataset.tab, true); }
+    };
+  });
+  addEventListener('hashchange', () => show(location.hash.slice(1)));
+  addEventListener('resize', () => show(location.hash.slice(1) || 'projects'));
+  show(location.hash.slice(1) || 'projects');
+}
+
+init();
+</script>
+</body>
+</html>
