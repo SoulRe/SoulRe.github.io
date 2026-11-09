@@ -63,27 +63,35 @@ dialog>img{width:100%;display:block;max-height:400px;object-fit:cover}.in{paddin
 .contact{margin:0 0 50px;padding:clamp(26px,5vw,48px);border:1px solid #a8f06a44;border-radius:14px;background:linear-gradient(130deg,#17251d,#111722);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
 .contact p{color:var(--mu);max-width:480px;margin:0}
 footer{padding:0 0 40px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--mu);font:11px var(--mono)}
+.fh{font-size:18px;margin:34px 0 14px}.fh:first-child{margin-top:0}
+.art.cert{background:#0e141d}.art.cert img{object-fit:contain}.art.pdf{font:800 30px var(--sans);letter-spacing:-.04em;background:#151f2b}
+dialog>img.cimg{object-fit:contain;max-height:70vh;background:#0b0e14}
+.cvf iframe{width:100%;height:80vh;border:1px solid var(--ln);border-radius:12px;background:#fff;margin-top:22px}.cvf{margin-top:22px}
+.cl{flex:1 1 300px}.cf{flex:1 1 340px;display:grid;gap:10px}
+.cf input,.cf textarea{width:100%;background:var(--bg);border:1px solid var(--ln);color:var(--tx);border-radius:8px;padding:11px 13px;font:15px var(--sans)}
+.cf textarea{resize:vertical}.cf .btn{justify-self:start}.cf p{margin:0;font-size:13px}a.tag:hover{border-color:var(--a);color:var(--a)}
 @media(max-width:850px){.hero,.g2,.vs{grid-template-columns:1fr}.visual{--r:125px;max-width:330px}}
-@media(max-width:620px){.wrap{width:calc(100% - 32px)}.nav .btn{display:none}.hero{padding:44px 0}}
+@media(max-width:620px){.wrap{width:calc(100% - 32px)}.nav{gap:10px}.nav .btn{padding:8px 11px;font-size:12px}.hero{padding:44px 0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ring,.nd .u{animation:none}*{transition:none!important}}
 </style></head><body>
 <div class="bar" id="bar"></div>
-<header><div class="wrap nav"><a class="logo" href="#now">MZ<i>.</i></a><nav class="tabs" id="tabs" role="tablist" aria-label="Sections"><span class="ink" id="ink"></span></nav><a class="btn" href="mailto:mohamed.h.af.zaki@gmail.com">Get in touch</a></div></header>
+<header><div class="wrap nav"><a class="logo" href="#now">MZ<i>.</i></a><nav class="tabs" id="tabs" role="tablist" aria-label="Sections"><span class="ink" id="ink"></span></nav><a class="btn" href="cv/cv.pdf" download="Mohamed-Zaki-CV.pdf" data-cv>Download CV</a></div></header>
 <div class="wrap">
 <section class="hero">
   <div>
     <div class="eyebrow">Cloud, infrastructure, systems</div>
     <h1>Building the <em id="rw">networks</em> behind the scenes.</h1>
     <p class="lead">I’m Mohamed Zaki. I design and secure cloud environments on AWS. Before that, I spent two years in AI. This site tells both halves, and why I changed direction.</p>
-    <div class="actions"><a class="btn" href="#projects" data-go="projects">See my projects</a><a class="btn alt" href="https://github.com/SoulRe" target="_blank" rel="noopener">GitHub</a><a class="btn alt" href="https://linkedin.com/in/mohamed-hany-zaki" target="_blank" rel="noopener">LinkedIn</a></div>
-    <div class="facts"><span>Cairo, Egypt</span><span>AWS and networking</span><span id="live">GitHub: loading</span></div>
+    <div class="actions"><a class="btn" href="#projects" data-go="projects">See my projects</a><a class="btn alt" href="cv/cv.pdf" download="Mohamed-Zaki-CV.pdf" data-cv>Download CV</a><a class="btn alt" href="https://github.com/SoulRe" target="_blank" rel="noopener">GitHub</a><a class="btn alt" href="https://linkedin.com/in/mohamed-hany-zaki" target="_blank" rel="noopener">LinkedIn</a></div>
+    <div class="facts"><span>Cairo, Egypt</span><span>AWS and networking</span><span>AWS Cloud Diploma, 921/1000</span></div>
   </div>
   <div class="visual" aria-hidden="true"><div class="ring" id="ring"></div><div class="core">MZ<img src="https://github.com/SoulRe.png?size=300" alt="" onerror="this.remove()"></div></div>
 </section>
 <div id="main"></div>
-<section class="contact"><div><h2>Let’s build something dependable.</h2><p>Interested in cloud infrastructure, systems engineering, or an intern or junior role? I’d be glad to talk.</p></div><a class="btn" href="mailto:mohamed.h.af.zaki@gmail.com">Email me</a></section>
+<section class="contact" id="contact"><div class="cl"><h2>Get in touch</h2><p>Interested in cloud infrastructure, systems engineering, or an intern or junior role? Send me a message and I’ll reply by email.</p><div class="tags" style="margin-top:16px"><a class="tag" href="mailto:mohamed.h.af.zaki@gmail.com">mohamed.h.af.zaki@gmail.com</a><a class="tag" href="https://linkedin.com/in/mohamed-hany-zaki" target="_blank" rel="noopener">LinkedIn</a><a class="tag" href="https://github.com/SoulRe" target="_blank" rel="noopener">GitHub</a></div></div>
+<form class="cf" id="cf"><input name="name" placeholder="Your name" aria-label="Your name" required><input name="email" type="email" placeholder="Your email" aria-label="Your email" required><textarea name="message" rows="4" placeholder="Your message" aria-label="Your message" required></textarea><button class="btn" type="submit">Send message</button><p class="msg" id="cs" role="status"></p></form></section>
 </div>
-<footer class="wrap"><span>© <span id="yr"></span> Mohamed Zaki</span><span>Cairo, Egypt · <a href="https://linkedin.com/in/mohamed-hany-zaki">LinkedIn</a> · <a href="https://github.com/SoulRe">GitHub</a></span></footer>
+<footer class="wrap"><span>© <span id="yr"></span> Mohamed Zaki</span><span>Cairo, Egypt · <a href="#contact">Contact</a> · <a href="https://linkedin.com/in/mohamed-hany-zaki">LinkedIn</a> · <a href="https://github.com/SoulRe">GitHub</a></span></footer>
 <dialog id="dlg"></dialog>
 
 <script>
@@ -133,7 +141,7 @@ const orb=['VPC','IAM','EC2','S3','Route 53','Firewall'];
 $('#ring').innerHTML=orb.map((n,i)=>`<div class="nd" style="--g:${i*360/orb.length}deg"><span class="u"><span class="t"><b>${n}</b></span></span></div>`).join('');
 if(!RM){let i=0;const w=$('#rw');setInterval(()=>{w.classList.add('out');setTimeout(()=>{i=(i+1)%WORDS.length;w.textContent=WORDS[i];w.classList.remove('out')},260)},2600)}
 
-const TABS=[['now','Who I am now'],['projects','Projects'],['before','Who I was'],['shift','Why I shifted'],['code','GitHub']];
+const TABS=[['now','Who I am now'],['projects','Projects'],['certs','Certifications'],['cv','CV'],['before','Who I was'],['shift','Why I shifted']];
 const V={};
 V.now=()=>`<h2>Who I am now</h2><p class="intro">A Computer and Systems Engineering graduate who designs multi-region AWS networks, locks them down, and keeps them observable.</p>
 <div class="g2"><div class="stack">
@@ -155,27 +163,59 @@ function drawP(c){cur=P.map((p,i)=>i).filter(i=>!c||P[i].c===c);
 $('#pg').innerHTML=cur.map(i=>{const p=P[i];return `<button class="card" data-i="${i}"><div class="art" style="--h:${i*31+90}">${esc(p.c)}${IMG(p.k)}</div><div class="bd"><small>${esc(p.w)}</small><h3>${esc(p.t)}</h3><p>${esc(p.s)}</p></div></button>`}).join('')}
 function openP(i){const p=P[i],d=$('#dlg'),n=cur.indexOf(i);
 d.innerHTML=`${IMG(p.k)}<div class="in"><div class="dn"><button data-m="-1">Previous</button><button data-m="0">Close</button><button data-m="1">Next</button></div><h3 style="font-size:22px">${esc(p.t)}</h3><small style="font:11px var(--mono);color:var(--a)">${esc(p.w)}</small><p style="color:var(--mu)">${esc(p.s)}</p><ul>${p.d.map(x=>'<li>'+esc(x)+'</li>').join('')}</ul>${tags(p.st.split(', '))}</div>`;
-d.dataset.n=n;if(!d.open)d.showModal()}
-function step(m){const d=$('#dlg');if(!m)return d.close();const n=(+d.dataset.n+m+cur.length)%cur.length;openP(cur[n])}
+d.dataset.n=n;d.dataset.mode='p';if(!d.open)d.showModal()}
+function step(m){const d=$('#dlg');if(!m)return d.close();const c=d.dataset.mode==='c',L=c?IM.length:cur.length;if(!L)return;const n=(+d.dataset.n+m+L)%L;c?openC(n):openP(cur[n])}
 
 V.before=()=>`<h2>Who I was</h2><p class="intro">Two years of AI: courses, a team to lead, and a job grading model output.</p><ul class="tl">${BEFORE.map(b=>`<li><small>${esc(b[0])}</small><b>${esc(b[1])}</b> <span>· ${esc(b[2])}</span><p>${esc(b[3])}</p></li>`).join('')}</ul>${tags(['Python','SQL','Pandas','NumPy','Matplotlib','Jupyter','Keras','TensorFlow','NLP','Computer vision','MLOps','RLHF'])}`;
 
 V.shift=()=>`<div class="story"><h2>Why I shifted</h2><p class="quote">I wanted to build the ground, not the model on top of it.</p>${STORY.map(s=>'<p>'+esc(s)+'</p>').join('')}</div>
 <div class="vs"><div class="box"><h3>Then</h3>${tags(['Notebooks','Model metrics','Datasets','Prompts and feedback'])}</div><div class="box"><h3>Now</h3>${tags(['Routes','Firewall rules','VPCs and subnets','Roles and policies'])}</div></div>`;
 
-V.code=()=>`<h2>On GitHub</h2><p class="intro">Pulled live from the GitHub API, so it stays current without edits.</p><div id="gh"><p class="msg">Loading repositories…</p></div>`;
-const LC={JavaScript:'#f1e05a',TypeScript:'#3178c6',Python:'#3572a5',HTML:'#e34c26',CSS:'#7b5fd0',Shell:'#89e051',Java:'#b07219',C:'#8a8a8a','C++':'#f34b7d',Go:'#00add8'};
-const ago=d=>{const s=(Date.now()-new Date(d))/1000;for(const[n,v]of[['year',31536000],['month',2592000],['week',604800],['day',86400],['hour',3600]])if(s>=v){const k=Math.floor(s/v);return k+' '+n+(k>1?'s':'')+' ago'}return 'recently'};
-let ghDone=0,ghData=null;
-async function getGH(){if(ghData)return ghData;const j=async p=>{const r=await fetch('https://api.github.com'+p);if(!r.ok)throw 0;return r.json()};
-ghData=await Promise.all([j('/users/'+GH),j('/users/'+GH+'/repos?per_page=100&sort=pushed')]);return ghData}
-async function loadGH(){if(ghDone)return;ghDone=1;const el=$('#gh');
-try{const[u,r]=await getGH();const l=r.filter(x=>!x.fork&&!x.archived).sort((a,b)=>b.stargazers_count-a.stargazers_count||new Date(b.pushed_at)-new Date(a.pushed_at));
-const c={};l.forEach(x=>x.language&&(c[x.language]=(c[x.language]||0)+1));const e=Object.entries(c).sort((a,b)=>b[1]-a[1]),t=e.reduce((a,x)=>a+x[1],0)||1;
-el.innerHTML=(e.length?`<div class="langbar">${e.map(([n,k])=>`<i title="${esc(n)}" style="width:${k/t*100}%;background:${LC[n]||'#8b93c4'}"></i>`).join('')}</div><div class="leg">${e.map(([n,k])=>`<span><i class="dot" style="background:${LC[n]||'#8b93c4'}"></i>${esc(n)} ${k}</span>`).join('')}</div>`:'')+
-(l.length?`<div class="grid">${l.map((x,i)=>`<a class="card" href="${esc(x.html_url)}" target="_blank" rel="noopener"><div class="art" style="--h:${i*41+60}">${esc(x.language||'Code')}<img src="https://opengraph.githubassets.com/1/${esc(x.full_name)}" loading="lazy" alt="" onerror="this.remove()"></div><div class="bd"><small>Updated ${ago(x.pushed_at)}</small><h3>${esc(x.name)}</h3><p>${esc(x.description||'No description yet.')}</p></div></a>`).join('')}</div>`:'<p class="msg">No public repositories yet.</p>')}
-catch(e){ghDone=0;el.innerHTML='<p class="msg">GitHub couldn’t be reached right now. Open <a href="https://github.com/'+GH+'" target="_blank" rel="noopener" style="color:var(--a)">github.com/'+GH+'</a> directly, or reload in a few minutes.</p>'}}
-getGH().then(([u,r])=>{$('#live').textContent='GitHub: '+r.filter(x=>!x.fork).length+' repos · '+u.followers+' followers'}).catch(()=>{$('#live').textContent='GitHub: SoulRe'});
+/* ---- repo + CV + certificates (read live from your GitHub repo, so uploads appear automatically) ---- */
+const REPO_FULL=''; /* optional override, e.g. 'SoulRe/SoulRe.github.io' */
+const FORM_ENDPOINT=''; /* optional: a Formspree URL so messages arrive in your inbox without opening an email app */
+const EMAIL='mohamed.h.af.zaki@gmail.com';
+const seg=location.pathname.split('/')[1]||'',gh=location.hostname.endsWith('.github.io');
+const REPOPATH=REPO_FULL||(gh?location.hostname.split('.')[0]+'/'+(seg&&!seg.includes('.')?seg:location.hostname):'SoulRe/SoulRe.github.io');
+async function ls(p){const k='ls:'+p;try{const c=JSON.parse(sessionStorage.getItem(k));if(c&&Date.now()-c.t<3e5)return c.d}catch(e){}
+const r=await fetch('https://api.github.com/repos/'+REPOPATH+'/contents/'+p);if(r.status===404)return[];if(!r.ok)throw 0;
+const d=(await r.json()).map(x=>({name:x.name,path:x.path,type:x.type}));try{sessionStorage.setItem(k,JSON.stringify({t:Date.now(),d}))}catch(e){}return d}
+const UP=['aws','nti','gbg','depi','ieee','alx','ccna','ai'];
+const pretty=s=>s.replace(/[-_]+/g,' ').replace(/\b\w+/g,w=>UP.includes(w.toLowerCase())?w.toUpperCase():w[0].toUpperCase()+w.slice(1));
+
+/* CV: upload any PDF into the "cv" folder. Newest name wins. */
+let CVURL='cv/cv.pdf',CVOK=false;
+const setCV=u=>{CVURL=u;document.querySelectorAll('[data-cv]').forEach(a=>a.href=u)};
+const cvP=ls('cv').then(l=>{const f=l.filter(x=>x.type==='file'&&/\.pdf$/i.test(x.name)).sort((a,b)=>b.name.localeCompare(a.name))[0];if(f){CVOK=true;setCV(encodeURI(f.path))}}).catch(()=>{})
+.then(async()=>{if(!CVOK){try{CVOK=(await fetch(CVURL,{method:'HEAD'})).ok}catch(e){}}});
+V.cv=()=>`<h2>CV</h2><p class="intro">Download my latest CV, or read it here.</p><div class="actions" style="margin-top:0"><a class="btn" data-cv download="Mohamed-Zaki-CV.pdf" href="${CVURL}">Download CV</a><a class="btn alt" data-cv target="_blank" rel="noopener" href="${CVURL}">Open in a new tab</a></div><div class="cvf" id="cvf"><p class="msg">Loading…</p></div>`;
+function loadCV(){cvP.then(()=>{$('#cvf').innerHTML=CVOK?`<iframe src="${esc(CVURL)}#view=FitH" title="CV preview"></iframe><p class="msg" style="margin-top:10px">Preview not showing on your device? Use Download CV above.</p>`:'<p class="msg">My CV isn’t available just yet. Please check back soon, or email me and I’ll send it.</p>'})}
+
+/* Certificates: drop images or PDFs into certificates/<folder>/ and each folder becomes a group. */
+V.certs=()=>`<h2>Certifications</h2><p class="intro">Diplomas, certificates and course completions. New files show up here automatically.</p>
+<div class="box" style="margin-bottom:30px"><h3>Earned so far</h3>${tags(['AWS Cloud Diploma, GBG Academy','Cloud Solutions Architect, NTI','AWS Certified Cloud Practitioner','AWS Academy: Architecting, Foundations, Security','Red Hat Academy: Linux Administration I and II','Cisco CCNA curriculum','Harvard Aspire Leaders Program','Orange Digital Center, AI Level 3'])}</div><div id="cg"><p class="msg">Loading certificates…</p></div>`;
+let IM=[],cdone=0;
+async function loadCerts(){if(cdone)return;cdone=1;const el=$('#cg');
+try{const root=await ls('certificates'),ok=x=>x.type==='file'&&/\.(png|jpe?g|webp|pdf)$/i.test(x.name);
+const dirs=root.filter(x=>x.type==='dir').sort((a,b)=>a.name.localeCompare(b.name));
+const gs=await Promise.all(dirs.map(async d=>({n:pretty(d.name),f:(await ls(d.path)).filter(ok)})));
+const loose=root.filter(ok);if(loose.length)gs.unshift({n:'General',f:loose});
+const list=gs.filter(g=>g.f.length);
+if(!list.length){el.innerHTML='<p class="msg">Certificate files are on their way. Check back soon.</p>';return}
+IM=[];
+el.innerHTML=list.map(g=>`<h3 class="fh">${esc(g.n)}</h3><div class="grid">${g.f.map(f=>{const u=esc(encodeURI(f.path)),t=pretty(f.name.replace(/\.[^.]+$/,''));
+if(/\.pdf$/i.test(f.name))return `<a class="card" href="${u}" target="_blank" rel="noopener"><div class="art pdf">PDF</div><div class="bd"><small>${esc(g.n)}</small><h3>${esc(t)}</h3></div></a>`;
+IM.push({u,t,g:g.n});return `<button class="card" data-c="${IM.length-1}"><div class="art cert"><img src="${u}" loading="lazy" alt="${esc(t)}"></div><div class="bd"><small>${esc(g.n)}</small><h3>${esc(t)}</h3></div></button>`}).join('')}</div>`).join('')}
+catch(e){cdone=0;el.innerHTML='<p class="msg">Certificates couldn’t be loaded right now. Please reload in a few minutes.</p>'}}
+function openC(i){const c=IM[i],d=$('#dlg');
+d.innerHTML=`<img class="cimg" src="${c.u}" alt="${esc(c.t)}"><div class="in"><div class="dn"><button data-m="-1">Previous</button><button data-m="0">Close</button><button data-m="1">Next</button></div><h3 style="font-size:20px">${esc(c.t)}</h3><small style="font:11px var(--mono);color:var(--a)">${esc(c.g)}</small></div>`;
+d.dataset.n=i;d.dataset.mode='c';if(!d.open)d.showModal()}
+
+/* contact form: opens the visitor's email app, or posts to FORM_ENDPOINT if you set one */
+$('#cf').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target),s=$('#cs'),name=f.get('name'),mail=f.get('email'),msg=f.get('message');
+if(FORM_ENDPOINT){s.textContent='Sending…';try{const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{Accept:'application/json'},body:f});if(!r.ok)throw 0;e.target.reset();s.textContent='Thanks, your message was sent.'}catch(x){s.textContent='That didn’t send. Please email me directly.'}return}
+location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('Portfolio message from '+name)+'&body='+encodeURIComponent(msg+'\n\n'+name+'\n'+mail);
+s.textContent='Your email app should open with the message ready to send.'};
 
 /* tabs */
 const tb=$('#tabs'),ink=$('#ink'),main=$('#main');
@@ -184,23 +224,25 @@ main.innerHTML=TABS.map(([id])=>`<section class="panel" id="p-${id}" role="tabpa
 drawP('');
 $('#flt').onclick=e=>{const b=e.target.closest('button');if(!b)return;document.querySelectorAll('#flt button').forEach(x=>x.setAttribute('aria-pressed',x===b));drawP(b.dataset.c)};
 $('#pg').onclick=e=>{const c=e.target.closest('.card');if(c)openP(+c.dataset.i)};
+$('#cg').onclick=e=>{const c=e.target.closest('[data-c]');if(c)openC(+c.dataset.c)};
 $('#dlg').onclick=e=>{if(e.target.id==='dlg')e.target.close();const b=e.target.closest('[data-m]');if(b)step(+b.dataset.m)};
 $('#dlg').onkeydown=e=>{if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)};
 let counted=0;
 function count(){if(counted)return;counted=1;document.querySelectorAll('[data-n]').forEach(el=>{const to=+el.dataset.n,s=el.dataset.s;if(RM){el.textContent=to+s;return}
 const t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/1100);el.textContent=Math.round(to*(1-Math.pow(1-k,3)))+s;if(k<1)requestAnimationFrame(f)})(t0)})}
 const btns=[...tb.querySelectorAll('button')];
-function show(n,push){if(!TABS.some(t=>t[0]===n))n='now';
+let curTab='now';
+function show(n,push){if(!TABS.some(t=>t[0]===n))n='now';curTab=n;
 btns.forEach(b=>{const on=b.dataset.t===n;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;$('#p-'+b.dataset.t).hidden=!on;
 if(on){ink.style.width=b.offsetWidth+'px';ink.style.transform='translateX('+b.offsetLeft+'px)'}});
-if(n==='code')loadGH();if(n==='now')count();
+if(n==='certs')loadCerts();if(n==='cv')loadCV();if(n==='now')count();
 if(push){history.replaceState(null,'','#'+n);if(scrollY>main.offsetTop-120)main.scrollIntoView()}}
 btns.forEach((b,i)=>{b.onclick=()=>show(b.dataset.t,true);
 b.onkeydown=e=>{const d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(d){const t=btns[(i+d+btns.length)%btns.length];t.focus();show(t.dataset.t,true)}}});
 document.querySelectorAll('[data-go]').forEach(a=>a.onclick=e=>{e.preventDefault();show(a.dataset.go,true);main.scrollIntoView()});
-addEventListener('hashchange',()=>show(location.hash.slice(1)));
-addEventListener('resize',()=>show(location.hash.slice(1)));
-document.fonts&&document.fonts.ready.then(()=>show(location.hash.slice(1)));
+addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(TABS.some(t=>t[0]===h))show(h)});
+addEventListener('resize',()=>show(curTab));
+document.fonts&&document.fonts.ready.then(()=>show(curTab));
 addEventListener('scroll',()=>{const m=document.documentElement.scrollHeight-innerHeight;$('#bar').style.width=(m?scrollY/m*100:0)+'%'},{passive:true});
 show(location.hash.slice(1));
 </script></body></html>
