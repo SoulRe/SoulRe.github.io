@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects &amp; Docs — Mohamed Zaki</title>
+<meta name="description" content="Deep dive: cloud & infrastructure projects, documentation and diagrams by Mohamed Zaki.">
+<style>
+  :root{
+    --bg:#070b12; --bg2:#0b1120; --panel:#0f1726; --line:rgba(148,163,184,.14);
+    --ink:#e8eef7; --mut:#8fa1b8; --acc:#38bdf8; --acc2:#818cf8; --amber:#fbbf24;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  [data-theme="light"]{ --bg:#f4f7fb; --bg2:#ffffff; --panel:#ffffff; --line:rgba(15,23,42,.12); --ink:#0f172a; --mut:#51617a; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+  ::selection{background:rgba(56,189,248,.3)}
+  a{color:var(--acc)}
+  .icon{width:18px;height:18px;flex:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+  .skip{position:absolute;left:-999px;top:0;background:var(--acc);color:#04121e;padding:10px 16px;z-index:200}
+  .skip:focus{left:12px;top:12px}
+
+  /* Boot */
+  #boot{display:none;position:fixed;inset:0;z-index:150;background:#05080f;align-items:center;justify-content:center;flex-direction:column;gap:26px}
+  .boot-box{font:14px/2 var(--mono);color:#9fb2c8;width:min(560px,86vw)}
+  .boot-box .p{color:var(--acc)} .boot-box .ok{color:#34d399}
+  .boot-bar{height:3px;background:rgba(148,163,184,.15);border-radius:99px;overflow:hidden;margin-top:14px}
+  .boot-bar span{display:block;height:100%;background:linear-gradient(90deg,var(--acc),var(--acc2));transform:scaleX(0)}
+
+  /* Header */
+  .site-head{position:sticky;top:0;z-index:80;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .site-head .wrap{display:flex;align-items:center;gap:26px;height:66px}
+  .logo{font:700 16px/1 var(--sans);color:var(--ink);text-decoration:none}
+  .logo b{color:var(--acc)}
+  .site-head nav{display:flex;gap:22px;margin-left:auto}
+  .site-head nav a{color:var(--mut);text-decoration:none;font:500 13.5px/1 var(--sans);transition:color .2s}
+  .site-head nav a:hover,.site-head nav a[aria-current]{color:var(--ink)}
+  .head-actions{display:flex;gap:10px;align-items:center}
+  .icon-btn{display:grid;place-items:center;width:38px;height:38px;border-radius:11px;border:1px solid var(--line);background:transparent;color:var(--mut);cursor:pointer;transition:.2s}
+  .icon-btn:hover{color:var(--acc);border-color:var(--acc)}
+  .cv-btn{display:inline-flex;gap:8px;align-items:center;padding:9px 15px;border-radius:11px;border:1px solid rgba(56,189,248,.4);color:var(--acc);text-decoration:none;font:600 13px/1 var(--sans);transition:.2s}
+  .cv-btn:hover{background:rgba(56,189,248,.1)}
+
+  /* Hero */
+  .pj-hero{padding:96px 0 0}
+  .kicker{font:700 11px/1 var(--mono);letter-spacing:.28em;text-transform:uppercase;color:var(--acc);display:flex;gap:10px;align-items:center}
+  .pj-hero h1{font:800 clamp(38px,6vw,68px)/1.06 var(--sans);letter-spacing:-.02em;margin:20px 0 18px}
+  .grad{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{max-width:640px;color:var(--mut);font-size:17px}
+  .hero-meta{display:flex;gap:34px;flex-wrap:wrap;margin:38px 0 8px}
+  .hm b{display:block;font:800 34px/1 var(--sans);color:var(--ink)}
+  .hm b em{font-style:normal;color:var(--acc)}
+  .hm span{font:600 11px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+
+  /* Marquee */
+  .marquee{margin-top:54px;border-block:1px solid var(--line);overflow:hidden;padding:13px 0;background:var(--bg2)}
+  .mq-track{display:flex;gap:0;width:max-content}
+  .mq-track span{font:700 12px/1 var(--mono);letter-spacing:.24em;color:var(--mut);padding:0 26px;white-space:nowrap}
+  .mq-track span i{font-style:normal;color:var(--acc);padding-left:26px}
+
+  /* Layout: rail + body */
+  .pj-layout{display:grid;grid-template-columns:230px 1fr;gap:56px;padding:70px 0 40px;align-items:start}
+  .rail{position:sticky;top:96px}
+  .rail-inner{position:relative;padding-left:20px}
+  .rail-track{position:absolute;left:0;top:4px;bottom:4px;width:2px;background:var(--line);border-radius:99px;overflow:hidden}
+  .rail-track span{display:block;width:100%;height:100%;background:linear-gradient(var(--acc),var(--acc2));transform:scaleY(0);transform-origin:top}
+  .rail-kicker{font:700 10px/1 var(--mono);letter-spacing:.26em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
+  .rail-list{list-style:none}
+  .rail-list a{display:flex;gap:10px;padding:6.5px 0;color:var(--mut);text-decoration:none;font:500 12.5px/1.4 var(--sans);transition:color .2s}
+  .rail-list a i{font:700 10.5px/1.7 var(--mono);color:var(--mut);font-style:normal;transition:color .2s}
+  .rail-list a:hover{color:var(--ink)}
+  .rail-list a.is-active{color:var(--acc)} .rail-list a.is-active i{color:var(--acc)}
+  .rail-note{margin-top:18px;font:11.5px/1.6 var(--mono);color:var(--mut);border:1px dashed var(--line);border-radius:10px;padding:10px 12px}
+
+  /* Filters */
+  .filters{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:34px}
+  .f-label{display:flex;gap:8px;align-items:center;font:700 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-right:6px}
+  [data-filter]{display:inline-flex;gap:7px;align-items:center;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--mut);font:600 12.5px/1 var(--sans);cursor:pointer;transition:.2s}
+  [data-filter] b{font:700 11px/1 var(--mono);color:inherit;opacity:.7}
+  [data-filter]:hover{color:var(--ink);border-color:var(--mut)}
+  [data-filter].is-active{background:rgba(56,189,248,.12);border-color:var(--acc);color:var(--acc)}
+
+  /* Project cards */
+  .pj-grid{display:grid;gap:26px}
+  .pj-card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:30px 32px;transition:border-color .3s,transform .3s}
+  .pj-card:hover{border-color:rgba(56,189,248,.45);transform:translateY(-3px)}
+  .pj-card.is-out{display:none}
+  .pc-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+  .pc-num{font:800 13px/1 var(--mono);color:var(--acc);letter-spacing:.1em}
+  .pc-icon{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:rgba(56,189,248,.1);color:var(--acc)}
+  .pc-cats{display:flex;gap:7px;margin-left:auto;flex-wrap:wrap;justify-content:flex-end}
+  .cat{font:700 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;border-radius:999px;border:1px solid var(--line);color:var(--mut)}
+  .cat.cloud{color:var(--acc);border-color:rgba(56,189,248,.4)}
+  .cat.networking{color:var(--acc2);border-color:rgba(129,140,248,.4)}
+  .cat.security{color:var(--amber);border-color:rgba(251,191,36,.4)}
+  .cat.systems{color:#34d399;border-color:rgba(52,211,153,.4)}
+  .cat.work{color:#f472b6;border-color:rgba(244,114,182,.4)}
+  .pc-title{font:700 22px/1.3 var(--sans);letter-spacing:-.01em;margin-bottom:10px}
+  .pc-sum{color:var(--mut);max-width:660px}
+  .pc-points{list-style:none;margin:18px 0 4px;display:grid;gap:9px}
+  .pc-points li{position:relative;padding-left:28px;color:var(--mut);font-size:14.5px}
+  .pc-points li::before{content:"";position:absolute;left:0;top:7px;width:14px;height:2px;background:var(--acc);border-radius:99px}
+  .pc-foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-end;margin-top:22px;padding-top:20px;border-top:1px dashed var(--line)}
+  .pc-stack{list-style:none;display:flex;gap:8px;flex-wrap:wrap}
+  .pc-stack li{font:600 11.5px/1 var(--mono);color:var(--ink);background:var(--bg2);border:1px solid var(--line);padding:7px 11px;border-radius:8px}
+  .pc-links{display:flex;gap:10px}
+  .soon{font:600 11px/1 var(--mono);letter-spacing:.06em;color:var(--mut);border:1px dashed var(--line);border-radius:999px;padding:8px 13px}
+
+  /* Footer */
+  .site-foot{border-top:1px solid var(--line);margin-top:70px;padding:44px 0 110px}
+  .site-foot .wrap{display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;align-items:center}
+  .foot-links{display:flex;gap:12px}
+  .foot-links a{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;border:1px solid var(--line);color:var(--mut);transition:.2s}
+  .foot-links a:hover{color:var(--acc);border-color:var(--acc);transform:translateY(-2px)}
+  .foot-note{color:var(--mut);font-size:13px}
+
+  @media (max-width:980px){
+    .pj-layout{grid-template-columns:1fr}
+    .rail{display:none}
+    .site-head nav{display:none}
+  }
+</style>
+<noscript><style>#boot{display:none!important}</style></noscript>
+</head>
+<body data-page="projects">
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Boot sequence (animated by site.js) -->
+<div id="boot" aria-hidden="true">
+  <div class="boot-box">
+    <p class="boot-line"><span class="p">$</span> whoami</p>
+    <p class="boot-line">mohamed.zaki — cloud &amp; infrastructure engineer</p>
+    <p class="boot-line"><span class="p">$</span> deploy --target portfolio --region me-south-1</p>
+    <p class="boot-line ok">✓ 11 projects provisioned · sidebar attached · gsap loaded</p>
+    <div class="boot-bar"><span></span></div>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="index.html">Mohamed Hany Zaki<b>.</b></a>
+    <nav>
+      <a href="index.html#now">Who I am now</a>
+      <a href="projects.html" aria-current="page">Projects &amp; Docs</a>
+      <a href="index.html#experience">Experience</a>
+	  <a href="certificates.html">Certificates</a>
+      <a href="index.html#skills">Tech stack</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="head-actions">
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle theme"><svg class="icon"><use data-theme-icon href="icons.svg#i-sun"></use></svg></button>
+      <button class="icon-btn" data-open-drawer aria-label="Open projects sidebar"><svg class="icon"><use href="icons.svg#i-menu"></use></svg></button>
+      <a class="cv-btn" href="https://drive.google.com/file/d/1GV8J19O9gO_ftwLFeHtJlwuTpOoafbgl/view?usp=sharing" target="_blank" rel="noopener">View CV <svg class="icon"><use href="icons.svg#i-arrow-up-right"></use></svg></a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="pj-hero wrap">
+    <p class="kicker" data-intro><svg class="icon"><use href="icons.svg#i-spark"></use></svg> Deep dive</p>
+    <h1 data-intro>Projects, Documentation<br><span class="grad">&amp; Diagrams</span></h1>
+    <p class="sub" data-intro>Detailed breakdowns of infrastructure challenges — architecture, configuration, testing and documentation. Open the sidebar to jump straight to any build.</p>
+    <div class="hero-meta" data-intro>
+      <div class="hm"><b><span data-counter="11">0</span></b><span>Projects built</span></div>
+      <div class="hm"><b><span data-counter="5">0</span></b><span>Focus areas</span></div>
+      <div class="hm"><b><span data-counter="921">0</span><em> / 1000</em></b><span>GBG AWS Diploma</span></div>
+    </div>
+  </section>
+
+  <div class="marquee" data-marquee aria-hidden="true">
+    <div class="mq-track" data-marquee-track>
+      <span>AWS<i>✦</i></span><span>CLOUD<i>✦</i></span><span>NETWORK<i>✦</i></span><span>SECURITY<i>✦</i></span><span>COMPUTE<i>✦</i></span><span>STORAGE<i>✦</i></span><span>TRANSIT GATEWAY<i>✦</i></span><span>IAM<i>✦</i></span><span>SERVERLESS<i>✦</i></span><span>DISASTER RECOVERY<i>✦</i></span>
+      <span>AWS<i>✦</i></span><span>CLOUD<i>✦</i></span><span>NETWORK<i>✦</i></span><span>SECURITY<i>✦</i></span><span>COMPUTE<i>✦</i></span><span>STORAGE<i>✦</i></span><span>TRANSIT GATEWAY<i>✦</i></span><span>IAM<i>✦</i></span><span>SERVERLESS<i>✦</i></span><span>DISASTER RECOVERY<i>✦</i></span>
+    </div>
+  </div>
+
+  <div class="wrap pj-layout">
+    <!-- In-page sidebar / index -->
+    <aside class="rail" aria-label="Project index">
+      <div class="rail-inner">
+        <div class="rail-track"><span data-rail-progress></span></div>
+        <p class="rail-kicker">Index — 11 builds</p>
+        <ol class="rail-list">
+          <li><a href="#multi-region-network"><i>01</i> Multi-Region Network</a></li>
+          <li><a href="#secure-iam-access"><i>02</i> Secure IAM Access</a></li>
+          <li><a href="#scalable-web-app"><i>03</i> Scalable Web App</a></li>
+          <li><a href="#managed-serverless"><i>04</i> Managed &amp; Serverless</a></li>
+          <li><a href="#agentless-ec2"><i>05</i> Agentless EC2</a></li>
+          <li><a href="#global-static-delivery"><i>06</i> Static Delivery</a></li>
+          <li><a href="#shared-storage"><i>07</i> Storage &amp; Transfer</a></li>
+          <li><a href="#hybrid-connectivity"><i>08</i> Hybrid Connectivity</a></li>
+          <li><a href="#network-firewall"><i>09</i> Network Firewall</a></li>
+          <li><a href="#home-lab-ad"><i>10</i> Home Lab</a></li>
+          <li><a href="#hybrid-cloud-capstone"><i>11</i> Hybrid Capstone</a></li>
+        </ol>
+        <p class="rail-note">Diagrams &amp; write-ups are being uploaded — placeholders below.</p>
+      </div>
+    </aside>
+
+    <div class="pj-body">
+      <div class="filters" data-reveal>
+        <span class="f-label"><svg class="icon"><use href="icons.svg#i-filter"></use></svg> Filter</span>
+        <button data-filter="all" class="is-active">All <b></b></button>
+        <button data-filter="work">Work <b></b></button>
+        <button data-filter="networking">Networking <b></b></button>
+        <button data-filter="security">Security <b></b></button>
+        <button data-filter="cloud">Cloud <b></b></button>
+        <button data-filter="systems">Systems <b></b></button>
+      </div>
+
+      <div class="pj-grid" data-project-grid>
+
+        <article class="pj-card" id="multi-region-network" data-cats="cloud networking work" data-reveal>
+          <header class="pc-head"><span class="pc-num">01</span><span class="pc-icon"><svg class="icon"><use href="icons.svg#i-globe"></use></svg></span>
+            <div class="pc-cats"><span class="cat cloud">Cloud</span><span class="cat networking">Networking</span><span class="cat work">Work</span></div></header>
+          <h3 class="pc-title">Multi-Region Network &amp; Cloud Infrastructure</h3>
+          <p class="pc-sum">A multi-region hub-and-spoke AWS environment with centralized traffic inspection and full disaster-recovery coverage — built during the GBG AWS internship.</p>
+          <ul class="pc-points">
+            <li>Hub-and-spoke architecture on Transit Gateway with centralized Network Firewall, NAT Gateway, ALB and WAF across multiple spoke VPCs.</li>
+            <li>Route 53 DNS routing, cross-region VPC connectivity and S3 replication.</li>
+            <li>Cross-region RDS replication with a Multi-AZ standby for disaster recovery.</li>
+          </ul>
+          <footer class="pc-foot">
+            <ul class="pc-stack" data-stagger><li>AWS</li><li>Transit Gateway</li><li>Network Firewall</li><li>WAF</li><li>Route 53</li><li>RDS</li><li>S3</li></ul>
+            <div class="pc-links"><span class="soon">Diagram — soon</span><span class="soon">Write-up — soon</span></div>
+          </footer>
+        </article>
+
+        <article class="pj-card" id="secure-iam-access" data-cats="security cloud" data-reveal>
+          <header class="pc-head"><span class="pc-num">02</span><span class="pc-icon"><svg class="icon"><use href="icons.svg#i-lock"></use></svg></span>
+            <div class="pc-cats"><span class="cat security">Security</span><span class="cat cloud">Cloud</span></div></header>
+          <h3 class="pc-title">Secure IAM Access Framework</h3>
+          <p class="pc-sum">An account-wide identity and access framework built around MFA enforcement, least privilege and tag-based boundaries.</p>
+          <ul class="pc-points">
+            <li>MFA enforcement policy that blocks every action until MFA is used — rolled out so no user was locked out.</li>
+            <li>Least-privilege read-only group/user: can list and view S3 resources, cannot modify anything.</li>
+            <li>DevOps role assumable only with MFA, scoped to EC2 instances tagged <code>Env=Dev</code>; replaced stored access keys with an EC2 instance role and verified deny/restore behavior.</li>
+          </ul>
+          <footer class="pc-foot">
+            <ul class="pc-stack" data-stagger><li>AWS IAM</li><li>MFA</li><li>Tag-based access</li><li>Roles</li></ul>
+            <div class="pc-links"><span class="soon">Diagram — soon</span><span class="soon">Write-up — soon</span></div>
+          </footer>
+        </article>
+
+        <article class="pj-card" id="scalable-web-app" data-cats="cloud" data-reveal>
+          <header class="pc-head"><span class="pc-num">03</span><span class="pc-icon"><svg class="icon"><use href="icons.svg#i-layers"></use></svg></span>
+            <div class="pc-cats"><span class="cat cloud">Cloud</span></div></header>
+          <h3 class="pc-title">Scalable Web Application Infrastructure</h3>
+          <p class="pc-sum">A load-balanced, auto-scaling web fleet on EC2 — with a vertical-scaling variant built for comparison.</p>
+          <ul class="pc-points">
+            <li>Fleet of Linux EC2 instances from a custom AMI behind an Application Load Balancer.</li>
+            <li>Auto Scaling Groups add/remove instances with workload; compared against a vertical-scaling design.</li>
+            <li>AMIs as restorable backups, EBS for persistent data; traffic spikes simulated and documented with an AWS-convention architecture diagram.</li>
+          </ul>
+          <footer class="pc-foot">
+            <ul class="pc-stack" data-stagger><li>EC2</li><li>ALB</li><li>Auto Scaling</li><li>AMI</li><li>EBS</li></ul>
+            <div class="pc-links"><span class="soon">Diagram — soon</span><span class="soon">Write-up — soon</span></div>
+          </footer>
+        </article>
+
+        <article class="pj-card" id="managed-serverless" data-cats="cloud" data-reveal>
+          <header class="pc-head"><span class="pc-num">04</span><span class="pc-icon"><svg class="icon"><use href="icons.svg#i-zap"></use></svg></span>
+            <div class="pc-cats"><span class="cat cloud">Cloud</span></div></header>
+          <h3 class="pc-title">Managed &amp; Serverless Application Deployment</h3>
+          <p class="pc-sum">The same application deployed four ways — comparing managed platforms and serverless patterns on use cases, cost and requirements.</p>
+          <ul class="pc-points">
+            <li>Elastic Beanstalk with CPU/request-based auto scaling, health checks and update policies (all-at-once, rolling, immutable).</li>
+            <li>App Runner from GitHub and ECR with concurrency-based scaling, environment config and HTTPS.</li>
+            <li>Amplify front end plus Lambda + API Gateway serverless endpoints.</li>
+          </ul>
+          <footer class="pc-foot">
+            <ul class="pc-stack" data-stagger><li>Elastic Beanstalk</li><li>App Runner</li><li>Amplify</li><li>Lambda</li><li>API Gateway</li><li>ECR</li></ul>
+            <div class="pc-links"><span class="soon">Diagram — soon</span><span class="soon">Write-up — soon</span></div>
+          </footer>
+        </article>
+
+        <article class="pj-card" id="agentless-ec2" data-cats="cloud systems" data-reveal>
+          <header class="pc-head"><span class="pc-num">05</span><span class="pc-icon"><svg class="icon"><use href="icons.svg#i-terminal"></use></svg></span>
+            <div class="pc-cats"><span class="cat cloud">Cloud</span><span class="cat systems">Systems</span></div></header>
+          <h3 class="pc-title">Agentless EC2 Management &amp; Automation</h3>
+          <p class="pc-sum">Fleet management with zero SSH: no key pairs, no port 22 — everything through Systems Manager and IAM.</p>
+          <ul class="pc-points">
+            <li>Instances launched with only an IAM role granting Systems Manager access.</li>
+            <li>Session Manager shells + Run Command to install and verify an Apache web server.</li>
+            <li>Scheduled automatic shutdowns with Systems Manager Automation and EventBridge.</li>
+          </ul>
+          <footer class="pc-foot">
+            <ul class="pc-stack" data-stagger><li>Systems Manager</li><li>Session Manager</li><li>Run Command</li><li>EventBridge</li></ul>
+            <div class="pc-links"><span class="soon">Diagram — soon</span><span class="soon">Write-up — soon</span></div>
+          </footer>
+        </article>
+
+        <article class="pj-card" id="global-static-delivery" data-cats="cloud networking" data-reveal>
+          <header class="pc-head"><span class="pc-num">06</span><span class="pc-icon"><svg class="icon"><use href="icons.svg#i-wifi"></use></svg></span>
+            <div class="pc-cats"><span class="cat cloud">Cloud</span><span class="cat networking">Networking</span></div></header>
+          <h3 class="pc-title">Global Static Content Delivery</h3>
+          <p class="pc-sum">The delivery layer for an e-commerce storefront — images, CSS and JS served worldwide at low latency.</p>
+          <ul class="pc-points">
+            <li>Static assets in S3 served globally through a CloudFront distribution.</li>
+            <li>Bucket locked down so content is reachable only via CloudFront, never directly from S3.</li>
+            <li>CloudWatch alarms on latency, request count and 4xx/5xx error rates.</li>
+          </ul>
+          <footer class="pc-foot">
+            <ul class="pc-stack" data-stagger><li>S3</li><li>CloudFront</li><li>CloudWatch</li></ul>
+            <div class="pc-links"><span class="soon">Diagram — soon</span><span class="soon">Write-up — soon</span></div>
+          </footer>
+        </article>
+
+        <article class="pj-card" id="shared-storage" data-cats="cloud systems" data-reveal>
+          <header class="pc-head"><span class="pc-num">07</span><span class="pc-icon"><svg class="icon"><use href="icons.svg#i-database"></use></svg></span>
+            <div class="pc-cats"><span class="cat cloud">Cloud</span><span class="cat systems">Systems</span></div></header>
+          <h3 class="pc-title">Shared Storage &amp; Data Transfer</h3>
+          <p class="pc-sum">Regional shared file storage across Availability Zones, plus data transfer paths into AWS.</p>
+          <ul class="pc-points">
+            <li>EFS file system with mount targets and security groups in multiple AZs; files written on one instance instantly visible on the other.</li>
+            <li>Simulated an on-premises server and moved data into AWS with DataSync.</li>
+            <li>Compared AWS Transfer Family and DataSync on protocols and use cases.</li>
+          </ul>
+          <footer class="pc-foot">
+            <ul class="pc-stack" data-stagger><li>EFS</li><li>DataSync</li><li>EC2</li><li>Security Groups</li></ul>
+            <div class="pc-links"><span class="soon">Diagram — soon</span><span class="soon">Write-up — soon</span></div>
+          </footer>
+        </article>
+
+        <article class="pj-card" id="hybrid-connectivity" data-cats="networking cloud" data-reveal>
+          <header class="pc-head"><span class="pc-num">08</span><span class="pc-icon"><svg class="icon"><use href="icons.svg#i-route"></use></svg></span>
+            <div class="pc-cats"><span class="cat networking">Networking</span><span class="cat cloud">Cloud</span></div></header>
+          <h3 class="pc-title">Multi-VPC &amp; Hybrid Connectivity</h3>
+          <p class="pc-sum">Private connectivity between VPCs, regions and remote administrators — peering, transit and both flavors of VPN.</p>
+          <ul class="pc-points">
+            <li>Non-overlapping VPCs across AZs connected with VPC peering, then attached to a Transit Gateway with managed route tables.</li>
+            <li>Client VPN endpoint in a hub VPC for secure administrator access.</li>
+            <li>Site-to-Site VPN between regions (Ireland ↔ London) integrated with the Transit Gateway; end-to-end connectivity tested, then cleaned up.</li>
+          </ul>
+          <footer class="pc-foot">
+            <ul class="pc-stack" data-stagger><li>VPC Peering</li><li>Transit Gateway</li><li>Client VPN</li><li>Site-to-Site VPN</li></ul>
+            <div class="pc-links"><span class="soon">Diagram — soon</span><span class="soon">Write-up — soon</span></div>
+          </footer>
+        </article>
+
+        <article class="pj-card" id="network-firewall" data-cats="security networking" data-reveal>
+          <header class="pc-head"><span class="pc-num">09</span><span class="pc-icon"><svg class="icon"><use href="icons.svg#i-shield"></use></svg></span>
+            <div class="pc-cats"><span class="cat security">Security</span><span class="cat networking">Networking</span></div></header>
+          <h3 class="pc-title">Perimeter Security with AWS Network Firewall</h3>
+          <p class="pc-sum">Inspection at the edge: every packet between the internet and workloads forced through AWS Network Firewall.</p>
+          <ul class="pc-points">
+            <li>Single-AZ VPC with dedicated firewall, customer and Internet Gateway subnets.</li>
+            <li>Route tables engineered so all inbound/outbound traffic transits the firewall; security groups as a second layer.</li>
+            <li>Verified inspection and policy enforcement from test instances, then applied the pattern to a Transit Gateway hub-and-spoke design.</li>
+          </ul>
+          <footer class="pc-foot">
+            <ul class="pc-stack" data-stagger><li>VPC</li><li>Network Firewall</li><li>Internet Gateway</li><li>Route Tables</li></ul>
+            <div class="pc-links"><span class="soon">Diagram — soon</span><span class="soon">Write-up — soon</span></div>
+          </footer>
+        </article>
+
+        <article class="pj-card" id="home-lab-ad" data-cats="systems" data-reveal>
+          <header class="pc-head"><span class="pc-num">10</span><span class="pc-icon"><svg class="icon"><use href="icons.svg#i-home"></use></svg></span>
+            <div class="pc-cats"><span class="cat systems">Systems</span></div></header>
+          <h3 class="pc-title">Home Lab — Active Directory &amp; Smart Home</h3>
+          <p class="pc-sum">A permanent home lab for systems administration and self-hosted automation.</p>
+          <ul class="pc-points">
+            <li>Windows Server Active Directory domain across 3 VMs: users, groups, permissions and domain administration.</li>
+            <li>Hosted Home Assistant smart-home system with remote access via AnyDesk.</li>
+          </ul>
+          <footer class="pc-foot">
+            <ul class="pc-stack" data-stagger><li>Windows Server</li><li>Active Directory</li><li>Home Assistant</li><li>AnyDesk</li></ul>
+            <div class="pc-links"><span class="soon">Diagram — soon</span><span class="soon">Write-up — soon</span></div>
+          </footer>
+        </article>
+
+        <article class="pj-card" id="hybrid-cloud-capstone" data-cats="cloud networking work" data-reveal>
+          <header class="pc-head"><span class="pc-num">11</span><span class="pc-icon"><svg class="icon"><use href="icons.svg#i-box"></use></svg></span>
+            <div class="pc-cats"><span class="cat cloud">Cloud</span><span class="cat networking">Networking</span><span class="cat work">Work</span></div></header>
+          <h3 class="pc-title">Hybrid Cloud Capstone — NTI</h3>
+          <p class="pc-sum">Team capstone for the Cloud Solutions Architect program: a planned, built and presented hybrid cloud architecture.</p>
+          <ul class="pc-points">
+            <li>Designed across AWS, VMware and Red Hat in a small team.</li>
+            <li>Applied best practices in scalability, security, reliability and cost optimization.</li>
+          </ul>
+          <footer class="pc-foot">
+            <ul class="pc-stack" data-stagger><li>AWS</li><li>VMware</li><li>Red Hat</li></ul>
+            <div class="pc-links"><span class="soon">Diagram — soon</span><span class="soon">Write-up — soon</span></div>
+          </footer>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="foot-note">© Mohamed Zaki — Designed around cloud, systems &amp; curiosity — Cairo, Egypt</p>
+    <div class="foot-links">
+      <a href="mailto:mohamed.h.af.zaki@gmail.com" aria-label="Email"><svg class="icon"><use href="icons.svg#i-mail"></use></svg></a>
+      <a href="https://github.com/SoulRe" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon"><use href="icons.svg#i-github"></use></svg></a>
+      <a href="https://linkedin.com/in/mohamed-hany-zaki" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon"><use href="icons.svg#i-linkedin"></use></svg></a>
+      <a href="tel:+201551301048" aria-label="Phone"><svg class="icon"><use href="icons.svg#i-phone"></use></svg></a>
+    </div>
+  </div>
+</footer>
+
+<!-- GSAP core + plugins, then shared site logic -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/Flip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollToPlugin.min.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

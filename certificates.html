@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificates — Mohamed Zaki</title>
+<meta name="description" content="Certificates and credentials: AWS, NTI, Red Hat Academy — Mohamed Zaki.">
+<style>
+  :root{
+    --bg:#070b12; --bg2:#0b1120; --panel:#0f1726; --line:rgba(148,163,184,.14);
+    --ink:#e8eef7; --mut:#8fa1b8; --acc:#38bdf8; --acc2:#818cf8; --amber:#fbbf24;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  [data-theme="light"]{ --bg:#f5f8fc; --bg2:#ffffff; --panel:#ffffff; --line:rgba(15,23,42,.14); --ink:#0b1526; --mut:#46566e; --acc:#0369a1; --acc2:#4f46e5; --amber:#b45309; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+  ::selection{background:rgba(56,189,248,.3)}
+  a{color:var(--acc)}
+  .icon{width:18px;height:18px;flex:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+  .skip{position:absolute;left:-999px;top:0;background:var(--acc);color:#fff;padding:10px 16px;z-index:200}
+  .skip:focus{left:12px;top:12px}
+  .kicker{font:700 11px/1 var(--mono);letter-spacing:.28em;text-transform:uppercase;color:var(--acc);display:flex;gap:10px;align-items:center}
+  .grad{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  .site-head{position:sticky;top:0;z-index:80;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .site-head .wrap{display:flex;align-items:center;gap:26px;height:66px}
+  .logo{font:700 16px/1 var(--sans);color:var(--ink);text-decoration:none}
+  .logo b{color:var(--acc)}
+  .site-head nav{display:flex;gap:20px;margin-left:auto}
+  .site-head nav a{color:var(--mut);text-decoration:none;font:500 13.5px/1 var(--sans);transition:color .2s}
+  .site-head nav a:hover,.site-head nav a[aria-current]{color:var(--ink)}
+  .head-actions{display:flex;gap:10px;align-items:center}
+  .icon-btn{display:grid;place-items:center;width:38px;height:38px;border-radius:11px;border:1px solid var(--line);background:transparent;color:var(--mut);cursor:pointer;transition:.2s}
+  .icon-btn:hover{color:var(--acc);border-color:var(--acc)}
+  .cv-btn{display:inline-flex;gap:8px;align-items:center;padding:9px 15px;border-radius:11px;border:1px solid color-mix(in srgb,var(--acc) 45%,transparent);color:var(--acc);text-decoration:none;font:600 13px/1 var(--sans);transition:.2s}
+  .cv-btn:hover{background:color-mix(in srgb,var(--acc) 12%,transparent)}
+
+  .ct-hero{padding:88px 0 0}
+  .ct-hero h1{font:800 clamp(38px,6vw,64px)/1.06 var(--sans);letter-spacing:-.02em;margin:20px 0 18px}
+  .sub{max-width:640px;color:var(--mut);font-size:17px}
+  .hero-meta{display:flex;gap:34px;flex-wrap:wrap;margin:36px 0 0}
+  .hm b{display:block;font:800 34px/1 var(--sans)}
+  .hm b em{font-style:normal;color:var(--acc)}
+  .hm span{font:600 11px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+
+  .ct-layout{display:grid;grid-template-columns:220px 1fr;gap:56px;padding:64px 0 24px;align-items:start}
+  .rail{position:sticky;top:96px}
+  .rail-inner{position:relative;padding-left:20px}
+  .rail-track{position:absolute;left:0;top:4px;bottom:4px;width:2px;background:var(--line);border-radius:99px;overflow:hidden}
+  .rail-track span{display:block;width:100%;height:100%;background:linear-gradient(var(--acc),var(--acc2));transform:scaleY(0);transform-origin:top}
+  .rail-kicker{font:700 10px/1 var(--mono);letter-spacing:.26em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
+  .rail-list{list-style:none}
+  .rail-list a{display:flex;gap:10px;padding:7px 0;color:var(--mut);text-decoration:none;font:500 13px/1.4 var(--sans);transition:color .2s}
+  .rail-list a:hover{color:var(--ink)}
+  .rail-list a.is-active{color:var(--acc)}
+
+  .ct-section{margin-bottom:64px}
+  .ct-h{display:flex;gap:12px;align-items:center;font:800 24px/1.2 var(--sans);margin-bottom:24px}
+  .ct-h .icon{width:22px;height:22px;color:var(--acc)}
+  .cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+  .cert-card{display:flex;flex-direction:column;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 24px;transition:border-color .3s,transform .3s}
+  .cert-card:hover{border-color:color-mix(in srgb,var(--acc) 45%,transparent);transform:translateY(-4px)}
+  .cc-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .cc-ic{display:grid;place-items:center;width:38px;height:38px;border-radius:11px;background:color-mix(in srgb,var(--acc) 12%,transparent);color:var(--acc)}
+  .cc-date{font:700 10.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:6px 10px}
+  .cc-title{font:700 16.5px/1.35 var(--sans)}
+  .cc-iss{color:var(--mut);font:600 12px/1.5 var(--mono)}
+  .cc-score{align-self:flex-start;font:800 12px/1 var(--mono);color:var(--acc);background:color-mix(in srgb,var(--acc) 12%,transparent);border:1px solid color-mix(in srgb,var(--acc) 40%,transparent);border-radius:999px;padding:7px 12px}
+  .cc-note{color:var(--mut);font-size:13.5px}
+  .cc-chips{list-style:none;display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+  .cc-chips li{font:600 11px/1 var(--mono);color:var(--ink);background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:7px 10px}
+  .cert-card.eligible{border-style:dashed;background:transparent}
+  .cc-flag{align-self:flex-start;font:800 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--amber);border:1px dashed color-mix(in srgb,var(--amber) 55%,transparent);border-radius:999px;padding:7px 11px}
+
+  .site-foot{border-top:1px solid var(--line);margin-top:96px;padding:44px 0 112px}
+  .site-foot .wrap{display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;align-items:center}
+  .foot-links{display:flex;gap:12px}
+  .foot-links a{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;border:1px solid var(--line);color:var(--mut);transition:.2s}
+  .foot-links a:hover{color:var(--acc);border-color:var(--acc);transform:translateY(-2px)}
+  .foot-note{color:var(--mut);font-size:13px}
+
+  @media (max-width:980px){ .ct-layout{grid-template-columns:1fr} .rail{display:none} .site-head nav{display:none} }
+</style>
+</head>
+<body data-page="certificates">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="index.html">Mohamed Hany Zaki<b>.</b></a>
+    <nav>
+      <a href="index.html#now">Who I am now</a>
+      <a href="projects.html">Projects &amp; Docs</a>
+      <a href="experience.html">Experience</a>
+      <a href="certificates.html" aria-current="page">Certificates</a>
+      <a href="index.html#skills">Tech stack</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="head-actions">
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle theme"><svg class="icon"><use data-theme-icon href="icons.svg#i-sun"></use></svg></button>
+      <button class="icon-btn" data-open-drawer aria-label="Open projects sidebar"><svg class="icon"><use href="icons.svg#i-menu"></use></svg></button>
+      <a class="cv-btn" href="https://drive.google.com/file/d/1GV8J19O9gO_ftwLFeHtJlwuTpOoafbgl/view?usp=sharing" target="_blank" rel="noopener">View CV <svg class="icon"><use href="icons.svg#i-arrow-up-right"></use></svg></a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="ct-hero wrap">
+    <p class="kicker" data-intro><svg class="icon"><use href="icons.svg#i-award"></use></svg> Credentials</p>
+    <h1 data-intro>Certificates &amp; <span class="grad">Certifications</span></h1>
+    <p class="sub" data-intro>Issued credentials across AWS, cloud architecture and Linux administration — plus the exams my NTI completion made me eligible for.</p>
+    <div class="hero-meta" data-intro>
+      <div class="hm"><b><span data-counter="7">0</span></b><span>Issued certificates</span></div>
+      <div class="hm"><b><span data-counter="921">0</span><em> / 1000</em></b><span>GBG AWS Diploma</span></div>
+      <div class="hm"><b><span data-counter="540" data-suffix="h">0</span></b><span>NTI Program</span></div>
+      <div class="hm"><b><span data-counter="96" data-suffix="%">0</span></b><span>NTI Score</span></div>
+    </div>
+  </section>
+
+  <div class="wrap ct-layout">
+    <aside class="rail" aria-label="Certificate index">
+      <div class="rail-inner">
+        <div class="rail-track"><span data-rail-progress></span></div>
+        <p class="rail-kicker">Index</p>
+        <ol class="rail-list">
+          <li><a href="#aws">AWS &amp; Cloud</a></li>
+          <li><a href="#programs">Architect Programs</a></li>
+          <li><a href="#linux">Linux Administration</a></li>
+          <li><a href="#eligible">Exam-Ready</a></li>
+        </ol>
+      </div>
+    </aside>
+
+    <div>
+      <section class="ct-section" id="aws">
+        <h2 class="ct-h" data-reveal><svg class="icon"><use href="icons.svg#i-cloud"></use></svg> AWS &amp; Cloud</h2>
+        <div class="cert-grid" data-stagger>
+          <article class="cert-card">
+            <div class="cc-top"><span class="cc-ic"><svg class="icon"><use href="icons.svg#i-award"></use></svg></span><span class="cc-date">2 Sep 2026</span></div>
+            <h3 class="cc-title">AWS Cloud Diploma</h3>
+            <p class="cc-iss">GBG Academy — Global Brands Group</p>
+            <span class="cc-score">921 / 1000 · 100% attendance</span>
+            <ul class="cc-chips"><li>Transit Gateway</li><li>Network Firewall</li><li>DMS</li><li>DR</li></ul>
+          </article>
+          <article class="cert-card">
+            <div class="cc-top"><span class="cc-ic"><svg class="icon"><use href="icons.svg#i-award"></use></svg></span><span class="cc-date">AWS</span></div>
+            <h3 class="cc-title">AWS Certified Cloud Practitioner</h3>
+            <p class="cc-iss">Amazon Web Services</p>
+            <ul class="cc-chips"><li>Cloud concepts</li><li>Security</li><li>Billing</li></ul>
+          </article>
+          <article class="cert-card">
+            <div class="cc-top"><span class="cc-ic"><svg class="icon"><use href="icons.svg#i-award"></use></svg></span><span class="cc-date">AWS Academy</span></div>
+            <h3 class="cc-title">Cloud Architecting</h3>
+            <p class="cc-iss">AWS Academy</p>
+            <ul class="cc-chips"><li>VPC</li><li>EC2</li><li>Architecture</li></ul>
+          </article>
+          <article class="cert-card">
+            <div class="cc-top"><span class="cc-ic"><svg class="icon"><use href="icons.svg#i-award"></use></svg></span><span class="cc-date">AWS Academy</span></div>
+            <h3 class="cc-title">Cloud Foundations</h3>
+            <p class="cc-iss">AWS Academy</p>
+            <ul class="cc-chips"><li>Core services</li><li>Shared responsibility</li></ul>
+          </article>
+          <article class="cert-card">
+            <div class="cc-top"><span class="cc-ic"><svg class="icon"><use href="icons.svg#i-award"></use></svg></span><span class="cc-date">AWS Academy</span></div>
+            <h3 class="cc-title">Cloud Security</h3>
+            <p class="cc-iss">AWS Academy</p>
+            <ul class="cc-chips"><li>IAM</li><li>Compliance</li><li>Encryption</li></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="ct-section" id="programs">
+        <h2 class="ct-h" data-reveal><svg class="icon"><use href="icons.svg#i-grad"></use></svg> Architect Programs</h2>
+        <div class="cert-grid" data-stagger>
+          <article class="cert-card">
+            <div class="cc-top"><span class="cc-ic"><svg class="icon"><use href="icons.svg#i-grad"></use></svg></span><span class="cc-date">Jan 2026</span></div>
+            <h3 class="cc-title">Cloud Solutions Architect</h3>
+            <p class="cc-iss">NTI — Digital Egypt Youth Program (Hire Ready)</p>
+            <span class="cc-score">540 hours · Score 96%</span>
+            <p class="cc-note">Cloud computing, virtualization and infrastructure design across Red Hat, VMware and AWS; OpenShift workloads and a hybrid-cloud team capstone.</p>
+            <ul class="cc-chips"><li>AWS</li><li>VMware</li><li>Red Hat</li><li>OpenShift</li></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="ct-section" id="linux">
+        <h2 class="ct-h" data-reveal><svg class="icon"><use href="icons.svg#i-terminal"></use></svg> Linux Administration</h2>
+        <div class="cert-grid" data-stagger>
+          <article class="cert-card">
+            <div class="cc-top"><span class="cc-ic"><svg class="icon"><use href="icons.svg#i-terminal"></use></svg></span><span class="cc-date">Red Hat Academy</span></div>
+            <h3 class="cc-title">Linux Administration I &amp; II</h3>
+            <p class="cc-iss">Red Hat Academy</p>
+            <ul class="cc-chips"><li>System admin</li><li>Storage</li><li>Services</li></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="ct-section" id="eligible">
+        <h2 class="ct-h" data-reveal><svg class="icon"><use href="icons.svg#i-spark"></use></svg> Exam-Ready (via NTI completion)</h2>
+        <div class="cert-grid" data-stagger>
+          <article class="cert-card eligible">
+            <span class="cc-flag">Eligible</span>
+            <h3 class="cc-title">RHCSA (EX200)</h3>
+            <p class="cc-iss">Red Hat Certified System Administrator</p>
+          </article>
+          <article class="cert-card eligible">
+            <span class="cc-flag">Eligible</span>
+            <h3 class="cc-title">VMware VCP-DCV</h3>
+            <p class="cc-iss">VMware Certified Professional — Data Center Virtualization</p>
+          </article>
+          <article class="cert-card eligible">
+            <span class="cc-flag">Eligible</span>
+            <h3 class="cc-title">AWS Solutions Architect – Associate</h3>
+            <p class="cc-iss">Amazon Web Services</p>
+          </article>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="foot-note">© Mohamed Zaki — Designed around cloud, systems &amp; curiosity — Cairo, Egypt</p>
+    <div class="foot-links">
+      <a href="mailto:mohamed.h.af.zaki@gmail.com" aria-label="Email"><svg class="icon"><use href="icons.svg#i-mail"></use></svg></a>
+      <a href="https://github.com/SoulRe" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon"><use href="icons.svg#i-github"></use></svg></a>
+      <a href="https://linkedin.com/in/mohamed-hany-zaki" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon"><use href="icons.svg#i-linkedin"></use></svg></a>
+      <a href="tel:+201551301048" aria-label="Phone"><svg class="icon"><use href="icons.svg#i-phone"></use></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/Flip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollToPlugin.min.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

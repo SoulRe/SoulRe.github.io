@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience & Education — Mohamed Zaki</title>
+<meta name="description" content="Full professional log: work experience, education, training programs, certificates and activities — Mohamed Zaki.">
+<style>
+  :root{
+    --bg:#070b12; --bg2:#0b1120; --panel:#0f1726; --line:rgba(148,163,184,.14);
+    --ink:#e8eef7; --mut:#8fa1b8; --acc:#38bdf8; --acc2:#818cf8; --amber:#fbbf24;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  [data-theme="light"]{ --bg:#f5f8fc; --bg2:#ffffff; --panel:#ffffff; --line:rgba(15,23,42,.14); --ink:#0b1526; --mut:#46566e; --acc:#0369a1; --acc2:#4f46e5; --amber:#b45309; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+  ::selection{background:rgba(56,189,248,.3)}
+  a{color:var(--acc)}
+  .icon{width:18px;height:18px;flex:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+  .skip{position:absolute;left:-999px;top:0;background:var(--acc);color:#fff;padding:10px 16px;z-index:200}
+  .skip:focus{left:12px;top:12px}
+  .kicker{font:700 11px/1 var(--mono);letter-spacing:.28em;text-transform:uppercase;color:var(--acc);display:flex;gap:10px;align-items:center}
+  .grad{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  .site-head{position:sticky;top:0;z-index:80;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .site-head .wrap{display:flex;align-items:center;gap:26px;height:66px}
+  .logo{font:700 16px/1 var(--sans);color:var(--ink);text-decoration:none}
+  .logo b{color:var(--acc)}
+  .site-head nav{display:flex;gap:20px;margin-left:auto}
+  .site-head nav a{color:var(--mut);text-decoration:none;font:500 13.5px/1 var(--sans);transition:color .2s}
+  .site-head nav a:hover,.site-head nav a[aria-current]{color:var(--ink)}
+  .head-actions{display:flex;gap:10px;align-items:center}
+  .icon-btn{display:grid;place-items:center;width:38px;height:38px;border-radius:11px;border:1px solid var(--line);background:transparent;color:var(--mut);cursor:pointer;transition:.2s}
+  .icon-btn:hover{color:var(--acc);border-color:var(--acc)}
+  .cv-btn{display:inline-flex;gap:8px;align-items:center;padding:9px 15px;border-radius:11px;border:1px solid color-mix(in srgb,var(--acc) 45%,transparent);color:var(--acc);text-decoration:none;font:600 13px/1 var(--sans);transition:.2s}
+  .cv-btn:hover{background:color-mix(in srgb,var(--acc) 12%,transparent)}
+
+  main>section{padding:88px 0 0}
+  .xp-hero{padding-top:88px}
+  .xp-hero h1{font:800 clamp(38px,6vw,66px)/1.06 var(--sans);letter-spacing:-.02em;margin:20px 0 18px}
+  .sub{max-width:640px;color:var(--mut);font-size:17px}
+  .hero-meta{display:flex;gap:34px;flex-wrap:wrap;margin:36px 0 0}
+  .hm b{display:block;font:800 34px/1 var(--sans)}
+  .hm b em{font-style:normal;color:var(--acc)}
+  .hm span{font:600 11px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+
+  .xp-layout{display:grid;grid-template-columns:220px 1fr;gap:56px;padding:64px 0 24px;align-items:start}
+  .rail{position:sticky;top:96px}
+  .rail-inner{position:relative;padding-left:20px}
+  .rail-track{position:absolute;left:0;top:4px;bottom:4px;width:2px;background:var(--line);border-radius:99px;overflow:hidden}
+  .rail-track span{display:block;width:100%;height:100%;background:linear-gradient(var(--acc),var(--acc2));transform:scaleY(0);transform-origin:top}
+  .rail-kicker{font:700 10px/1 var(--mono);letter-spacing:.26em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
+  .rail-list{list-style:none}
+  .rail-list a{display:flex;gap:10px;padding:7px 0;color:var(--mut);text-decoration:none;font:500 13px/1.4 var(--sans);transition:color .2s}
+  .rail-list a:hover{color:var(--ink)}
+  .rail-list a.is-active{color:var(--acc)}
+
+  .xp-section{margin-bottom:64px}
+  .xp-h{display:flex;gap:12px;align-items:center;font:800 26px/1.2 var(--sans);margin-bottom:28px}
+  .xp-h .icon{width:22px;height:22px;color:var(--acc)}
+
+  .tl{position:relative;padding-left:30px}
+  .tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line)}
+  .tl-line{position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--acc),var(--acc2));transform:scaleY(0);transform-origin:top}
+  .tl-item{position:relative;padding-bottom:28px}
+  .tl-dot{position:absolute;left:-30px;top:8px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--acc);box-shadow:0 0 0 4px color-mix(in srgb,var(--acc) 18%,transparent)}
+  .xp-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px 26px;transition:border-color .3s,transform .3s}
+  .xp-card:hover{border-color:color-mix(in srgb,var(--acc) 45%,transparent);transform:translateX(4px)}
+  .xp-top{display:flex;gap:12px;flex-wrap:wrap;align-items:baseline;margin-bottom:6px}
+  .xp-top h3{font:700 18px/1.3 var(--sans)}
+  .xp-top time{font:700 11px/1.6 var(--mono);letter-spacing:.1em;color:var(--acc);text-transform:uppercase}
+  .xp-org{color:var(--mut);font:600 13px/1.5 var(--mono);margin-bottom:12px}
+  .xp-card ul{list-style:none;display:grid;gap:8px}
+  .xp-card ul li{position:relative;padding-left:26px;color:var(--mut);font-size:14.5px}
+  .xp-card ul li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:2px;background:var(--acc);border-radius:99px}
+  .xp-card > p{color:var(--mut);font-size:14.5px}
+  .xp-stack{list-style:none;display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .xp-stack li{font:600 11.5px/1 var(--mono);color:var(--ink);background:var(--bg2);border:1px solid var(--line);padding:7px 11px;border-radius:8px}
+
+  .cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+  .cert{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;transition:border-color .3s,transform .3s}
+  .cert:hover{border-color:color-mix(in srgb,var(--acc) 45%,transparent);transform:translateY(-3px)}
+  .cert .icon{color:var(--acc);margin-top:2px}
+  .cert b{display:block;font:600 14.5px/1.4 var(--sans)}
+  .cert span{color:var(--mut);font:600 11.5px/1.6 var(--mono)}
+  .cert-cta{margin-top:20px}
+  .btn{display:inline-flex;gap:9px;align-items:center;padding:12px 18px;border-radius:13px;font:600 13.5px/1 var(--sans);text-decoration:none;border:1px solid var(--line);color:var(--ink);transition:.2s}
+  .btn:hover{border-color:var(--acc);color:var(--acc)}
+
+  .lang-strip{display:flex;gap:12px;flex-wrap:wrap}
+  .lang-strip span{font:600 13px/1 var(--mono);color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:12px 18px}
+  .lang-strip b{color:var(--acc)}
+
+  .site-foot{border-top:1px solid var(--line);margin-top:96px;padding:44px 0 112px}
+  .site-foot .wrap{display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;align-items:center}
+  .foot-links{display:flex;gap:12px}
+  .foot-links a{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;border:1px solid var(--line);color:var(--mut);transition:.2s}
+  .foot-links a:hover{color:var(--acc);border-color:var(--acc);transform:translateY(-2px)}
+  .foot-note{color:var(--mut);font-size:13px}
+
+  @media (max-width:980px){ .xp-layout{grid-template-columns:1fr} .rail{display:none} .site-head nav{display:none} }
+</style>
+</head>
+<body data-page="experience">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="index.html">Mohamed Hany Zaki<b>.</b></a>
+    <nav>
+      <a href="index.html#now">Who I am now</a>
+      <a href="projects.html">Projects &amp; Docs</a>
+      <a href="experience.html" aria-current="page">Experience</a>
+      <a href="certificates.html">Certificates</a>
+      <a href="index.html#skills">Tech stack</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="head-actions">
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle theme"><svg class="icon"><use data-theme-icon href="icons.svg#i-sun"></use></svg></button>
+      <button class="icon-btn" data-open-drawer aria-label="Open projects sidebar"><svg class="icon"><use href="icons.svg#i-menu"></use></svg></button>
+      <a class="cv-btn" href="https://drive.google.com/file/d/1GV8J19O9gO_ftwLFeHtJlwuTpOoafbgl/view?usp=sharing" target="_blank" rel="noopener">View CV <svg class="icon"><use href="icons.svg#i-arrow-up-right"></use></svg></a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="xp-hero wrap">
+    <p class="kicker" data-intro><svg class="icon"><use href="icons.svg#i-briefcase"></use></svg> The full log</p>
+    <h1 data-intro>Experience, Education<br><span class="grad">&amp; Certifications</span></h1>
+    <p class="sub" data-intro>Every role, program and certificate on the path so far — cloud, networking, systems, support, and the AI chapter before them.</p>
+    <div class="hero-meta" data-intro>
+      <div class="hm"><b><span data-counter="540" data-suffix="h">0</span></b><span>NTI Cloud Training</span></div>
+      <div class="hm"><b><span data-counter="96" data-suffix="%">0</span></b><span>NTI Score</span></div>
+      <div class="hm"><b><span data-counter="921">0</span><em> / 1000</em></b><span>GBG AWS Diploma</span></div>
+      <div class="hm"><b><span data-counter="9">0</span></b><span>Training programs</span></div>
+    </div>
+  </section>
+
+  <div class="wrap xp-layout">
+    <aside class="rail" aria-label="Experience index">
+      <div class="rail-inner">
+        <div class="rail-track"><span data-rail-progress></span></div>
+        <p class="rail-kicker">Index</p>
+        <ol class="rail-list">
+          <li><a href="#work">Work experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#training">Training &amp; courses</a></li>
+          <li><a href="#certificates">Certificates</a></li>
+          <li><a href="#activities">Activities</a></li>
+          <li><a href="#languages">Languages</a></li>
+        </ol>
+      </div>
+    </aside>
+
+    <div>
+      <section class="xp-section" id="work">
+        <h2 class="xp-h" data-reveal><svg class="icon"><use href="icons.svg#i-briefcase"></use></svg> Work experience</h2>
+        <div class="tl">
+          <span class="tl-line" data-tl-line></span>
+          <article class="tl-item" id="work-sutherland" data-reveal><span class="tl-dot"></span>
+            <div class="xp-card">
+              <div class="xp-top"><h3>Technical Support Expert</h3><time>May 2026 — Oct 2026</time></div>
+              <p class="xp-org">Sutherland — Cairo, Egypt</p>
+              <ul>
+                <li>Resolved 25–35 customer issues per day by phone for home-internet subscribers — hardware, software, network and account problems within required resolution times.</li>
+                <li>Guided customers through troubleshooting and setup, explaining technical steps clearly to non-technical users.</li>
+                <li>Logged every case in service tickets and escalated complex issues to higher-tier support; handled account setup, access issues and application configuration.</li>
+              </ul>
+              <ul class="xp-stack" data-stagger><li>Ticketing</li><li>Remote troubleshooting</li><li>Customer communication</li></ul>
+            </div>
+          </article>
+          <article class="tl-item" id="work-gbg" data-reveal><span class="tl-dot"></span>
+            <div class="xp-card">
+              <div class="xp-top"><h3>AWS Cloud Intern</h3><time>Feb 2026 — May 2026</time></div>
+              <p class="xp-org">Global Brands Group (GBG) — 5th Settlement, New Cairo · Hybrid</p>
+              <ul>
+                <li>Designed a hub-and-spoke network on AWS with centralized traffic inspection across multiple spoke VPCs.</li>
+                <li>Deployed containerized and serverless workloads with ECR, Lambda and API Gateway; automated EC2 fleet management with Systems Manager.</li>
+                <li>Migrated a MySQL database across regions with AWS DMS and validated disaster-recovery strategies with AWS Elastic Disaster Recovery.</li>
+                <li>Monitored network health, routing, security groups and firewall rules on live multi-region environments under change-controlled operations.</li>
+                <li>Graduated from the GBG Academy AWS Cloud Diploma with 921/1000 and 100% attendance.</li>
+              </ul>
+              <ul class="xp-stack" data-stagger><li>Transit Gateway</li><li>Network Firewall</li><li>Lambda</li><li>DMS</li><li>Systems Manager</li></ul>
+            </div>
+          </article>
+          <article class="tl-item" id="work-outlier" data-reveal><span class="tl-dot"></span>
+            <div class="xp-card">
+              <div class="xp-top"><h3>AI Trainer (RLHF) — Freelance</h3><time>Nov 2024 — Dec 2024</time></div>
+              <p class="xp-org">Outlier.AI — Remote</p>
+              <ul><li>Reviewed and gave detailed feedback on AI-generated prompts using Reinforcement Learning from Human Feedback to improve prompt quality and model performance.</li></ul>
+              <ul class="xp-stack" data-stagger><li>RLHF</li><li>Prompt evaluation</li></ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="xp-section" id="education">
+        <h2 class="xp-h" data-reveal><svg class="icon"><use href="icons.svg#i-grad"></use></svg> Education</h2>
+        <div class="tl">
+          <span class="tl-line" data-tl-line></span>
+          <article class="tl-item" id="edu-zagazig" data-reveal><span class="tl-dot"></span>
+            <div class="xp-card">
+              <div class="xp-top"><h3>B.Sc., Computer &amp; Systems Engineering</h3><time>Sep 2020 — Jul 2025</time></div>
+              <p class="xp-org">Zagazig University — Faculty of Engineering</p>
+              <p>Engineering foundation across systems, computing and infrastructure disciplines.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="xp-section" id="training">
+        <h2 class="xp-h" data-reveal><svg class="icon"><use href="icons.svg#i-cpu"></use></svg> Training programs &amp; courses</h2>
+        <div class="tl">
+          <span class="tl-line" data-tl-line></span>
+          <article class="tl-item" id="training-nti" data-reveal><span class="tl-dot"></span>
+            <div class="xp-card">
+              <div class="xp-top"><h3>Cloud Solutions Architect</h3><time>13 Oct 2025 — 4 Jan 2026</time></div>
+              <p class="xp-org">National Telecommunication Institute (NTI) — Digital Egypt Youth Program (Hire Ready) · 540 hours · Score 96% · New Administrative Capital</p>
+              <ul>
+                <li>Cloud computing, virtualization and infrastructure design across Red Hat, VMware and AWS — Linux administration, software-defined storage, cloud security.</li>
+                <li>Ran containerized workloads on OpenShift; capstone integrating technical and managerial work; career modules in Business English and workplace skills.</li>
+                <li>Eligible for RHCSA (EX200), VMware VCP-DCV, and AWS Certified Solutions Architect – Associate.</li>
+              </ul>
+              <ul class="xp-stack" data-stagger><li>AWS</li><li>VMware</li><li>Red Hat</li><li>OpenShift</li></ul>
+            </div>
+          </article>
+          <article class="tl-item" id="training-ccna" data-reveal><span class="tl-dot"></span>
+            <div class="xp-card">
+              <div class="xp-top"><h3>CCNA Networking</h3><time>Cisco Networking Academy (NetAcad)</time></div>
+              <p class="xp-org">Cisco CCNA curriculum as delivered through The Open University Online</p>
+              <ul><li>Switching and routing protocol concepts; LAN/WAN configuration practiced on Cisco equipment through hands-on labs and simulations.</li></ul>
+            </div>
+          </article>
+          <article class="tl-item" id="training-orange" data-reveal><span class="tl-dot"></span>
+            <div class="xp-card">
+              <div class="xp-top"><h3>Artificial Intelligence Level 3</h3><time>Jan 2025 — Feb 2025 · 96 hours</time></div>
+              <p class="xp-org">Orange Digital Center</p>
+              <p>NLP, CNNs, RNNs, GANs, MLOps and computer vision with hands-on exercises.</p>
+            </div>
+          </article>
+          <article class="tl-item" id="training-depi" data-reveal><span class="tl-dot"></span>
+            <div class="xp-card">
+              <div class="xp-top"><h3>AWS Machine Learning Engineer Track — Team Leader</h3><time>Mar 2024 — Dec 2024</time></div>
+              <p class="xp-org">Digital Egypt Pioneers Initiative (DEPI) — Remote</p>
+              <ul>
+                <li>Led a team as the main liaison with the organization, coordinating tasks and collaboration to finish project work on time.</li>
+                <li>Completed AWS Cloud Foundations and AWS Solutions Architect training alongside ML and data-science fundamentals.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="tl-item" id="training-harvard" data-reveal><span class="tl-dot"></span>
+            <div class="xp-card">
+              <div class="xp-top"><h3>Aspire Leaders Program</h3><time>Apr 2024 — Aug 2024</time></div>
+              <p class="xp-org">Harvard — Remote</p>
+              <p>Global leadership program with mentorship from Harvard faculty and industry experts: strategic thinking, communication, problem-solving.</p>
+            </div>
+          </article>
+          <article class="tl-item" id="training-alx" data-reveal><span class="tl-dot"></span>
+            <div class="xp-card">
+              <div class="xp-top"><h3>AI Career Essentials (AiCE)</h3><time>Mar 2024 — May 2024</time></div>
+              <p class="xp-org">ALX — Remote</p>
+              <p>Applied AI tools, time-management and project-management tools to research, data analysis, writing and work planning.</p>
+            </div>
+          </article>
+          <article class="tl-item" id="training-worldquant" data-reveal><span class="tl-dot"></span>
+            <div class="xp-card">
+              <div class="xp-top"><h3>Applied Data Science</h3><time>Mar 2024 — Oct 2024</time></div>
+              <p class="xp-org">WorldQuant University — Remote</p>
+              <p>Data wrangling, analysis and visualization in Python, Pandas, NumPy and Matplotlib; regression, decision trees and clustering with statistical modeling and hypothesis testing in Jupyter.</p>
+            </div>
+          </article>
+          <article class="tl-item" id="training-nti-ai" data-reveal><span class="tl-dot"></span>
+            <div class="xp-card">
+              <div class="xp-top"><h3>AI Summer Training</h3><time>Aug 2023 — Sep 2023</time></div>
+              <p class="xp-org">NTI</p>
+              <p>Python, machine learning and deep learning; supervised/unsupervised models and neural networks (CNN, RNN, LSTM, GRU) with Keras and TensorFlow.</p>
+            </div>
+          </article>
+          <article class="tl-item" id="training-zewail" data-reveal><span class="tl-dot"></span>
+            <div class="xp-card">
+              <div class="xp-top"><h3>AI Summer Training</h3><time>Aug 2023 — Sep 2023</time></div>
+              <p class="xp-org">Zewail City of Science and Technology</p>
+              <p>Python, machine learning and deep learning fundamentals plus project-management basics.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="xp-section" id="certificates">
+        <h2 class="xp-h" data-reveal><svg class="icon"><use href="icons.svg#i-award"></use></svg> Certificates</h2>
+        <div class="cert-grid" data-stagger>
+          <div class="cert"><svg class="icon"><use href="icons.svg#i-check"></use></svg><div><b>AWS Cloud Diploma — GBG Academy</b><span>2 Sep 2026 · 921/1000</span></div></div>
+          <div class="cert"><svg class="icon"><use href="icons.svg#i-check"></use></svg><div><b>Cloud Solutions Architect — NTI / Digital Egypt Youth Program</b><span>Jan 2026 · 540 hours</span></div></div>
+          <div class="cert"><svg class="icon"><use href="icons.svg#i-check"></use></svg><div><b>AWS Certified Cloud Practitioner</b><span>Amazon Web Services</span></div></div>
+          <div class="cert"><svg class="icon"><use href="icons.svg#i-check"></use></svg><div><b>AWS Academy: Cloud Architecting, Cloud Foundations, Cloud Security</b><span>AWS Academy</span></div></div>
+          <div class="cert"><svg class="icon"><use href="icons.svg#i-check"></use></svg><div><b>Red Hat Academy: Linux Administration I &amp; II</b><span>Red Hat Academy</span></div></div>
+        </div>
+        <div class="cert-cta" data-reveal>
+          <a class="btn" href="certificates.html">Open the dedicated certificates page <svg class="icon"><use href="icons.svg#i-arrow-right"></use></svg></a>
+        </div>
+      </section>
+
+      <section class="xp-section" id="activities">
+        <h2 class="xp-h" data-reveal><svg class="icon"><use href="icons.svg#i-user"></use></svg> Activities</h2>
+        <div class="tl">
+          <span class="tl-line" data-tl-line></span>
+          <article class="tl-item" data-reveal><span class="tl-dot"></span>
+            <div class="xp-card">
+              <div class="xp-top"><h3>AI Technical Member — Computer Society</h3><time>Nov 2022 — Oct 2023</time></div>
+              <p class="xp-org">IEEE Zagazig Student Branch — Hybrid</p>
+              <p>Data cleaning and analysis, team Python projects such as Sudoku solvers, and technical presentations to the branch.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="xp-section" id="languages">
+        <h2 class="xp-h" data-reveal><svg class="icon"><use href="icons.svg#i-globe"></use></svg> Languages</h2>
+        <div class="lang-strip" data-stagger>
+          <span><b>English</b> — Proficient</span>
+          <span><b>Arabic</b> — Native</span>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="foot-note">© Mohamed Zaki — Designed around cloud, systems &amp; curiosity — Cairo, Egypt</p>
+    <div class="foot-links">
+      <a href="mailto:mohamed.h.af.zaki@gmail.com" aria-label="Email"><svg class="icon"><use href="icons.svg#i-mail"></use></svg></a>
+      <a href="https://github.com/SoulRe" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon"><use href="icons.svg#i-github"></use></svg></a>
+      <a href="https://linkedin.com/in/mohamed-hany-zaki" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon"><use href="icons.svg#i-linkedin"></use></svg></a>
+      <a href="tel:+201551301048" aria-label="Phone"><svg class="icon"><use href="icons.svg#i-phone"></use></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/Flip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollToPlugin.min.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

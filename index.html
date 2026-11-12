@@ -1,238 +1,424 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Mohamed Zaki — Cloud, infrastructure and systems engineering portfolio.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mohamed Zaki — Cloud & Infrastructure Engineer</title>
-<script>try{var t=localStorage.getItem("theme");if(!t)t=matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.dataset.theme=t}catch(e){}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="Mohamed Zaki — cloud and infrastructure engineer focused on AWS architecture, networking, security and reliable systems.">
 <style>
-:root{--bg:#0b1018;--surface:#131c28;--surface2:#1a2635;--line:#3d4e63;--text:#f4f7fb;--muted:#c2cedb;--accent:#b6f36b;--cyan:#7fe3ee;--btn:#b6f36b;--btnfg:#10160c;--focus:#ffd24a;--shadow:0 14px 36px #0006;
---mono:"DM Mono",ui-monospace,monospace;--sans:"Manrope",system-ui,sans-serif;--max:1180px;--gutter:clamp(20px,5vw,40px);--sec:clamp(72px,9vw,112px);--gap:clamp(16px,2.4vw,24px);color-scheme:dark}
-[data-theme=light]{--bg:#f5f7fa;--surface:#fff;--surface2:#eef2f7;--line:#bcc7d4;--text:#0f1720;--muted:#3f4e5f;--accent:#35610a;--cyan:#0a5f6e;--btn:#2f5d00;--btnfg:#fff;--focus:#0044cc;--shadow:0 12px 30px #1b2a3b24;color-scheme:light}
-*{box-sizing:border-box}
-html{scroll-padding-top:96px;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.75 var(--sans);overflow-x:hidden;transition:background .25s,color .25s}
-a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
-:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:6px}
-::selection{background:var(--accent);color:var(--bg)}
-.skip{position:absolute;left:16px;top:-80px;background:var(--btn);color:var(--btnfg);padding:12px 18px;border-radius:8px;font-weight:700;z-index:200}.skip:focus{top:12px}
-.wrap{width:min(var(--max),100% - 2*var(--gutter));margin-inline:auto}
-.progress{height:4px;position:fixed;z-index:100;top:0;left:0;width:0;background:linear-gradient(90deg,var(--accent),var(--cyan))}
-header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:10px}
-.brand{font-size:1.25rem;font-weight:800;letter-spacing:-.03em}.brand span{color:var(--accent)}
-.navlinks{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-.navlinks a{font:500 .8125rem var(--mono);color:var(--muted);padding:10px 12px;border-radius:8px;letter-spacing:.02em}
-.navlinks a:hover,.navlinks a.active{color:var(--accent);background:var(--surface2)}
-.nav-actions{display:flex;gap:12px;align-items:center}
-.button,.navcta{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 22px;border:2px solid var(--btn);background:var(--btn);color:var(--btnfg);border-radius:10px;font-size:.9375rem;font-weight:700;transition:transform .2s,filter .2s}
-.button.ghost{background:transparent;color:var(--text);border-color:var(--line)}
-.button.ghost:hover{border-color:var(--accent);color:var(--accent)}
-.icon-btn{min-width:48px;min-height:48px;display:inline-grid;place-items:center;background:var(--surface);border:2px solid var(--line);border-radius:10px;cursor:pointer;font-size:1.2rem;line-height:1}
-.icon-btn:hover{border-color:var(--accent)}.menu{display:none}
-.eyebrow,.kicker{font:500 .875rem/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:clamp(32px,6vw,64px);padding-block:clamp(56px,8vw,96px)}
-h1{font-size:clamp(2.6rem,6.4vw,5rem);line-height:1.04;letter-spacing:-.05em;margin:24px 0 28px}
-h1 .accent{color:var(--accent);display:inline-block}
-.hero-copy{font-size:1.1875rem;color:var(--muted);max-width:40rem;margin:0 0 32px}
-.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin:0 0 32px}
-.quickfacts{display:flex;gap:12px 24px;flex-wrap:wrap;color:var(--muted);font:500 .875rem var(--mono);margin:0;padding:0;list-style:none}
-.quickfacts li:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-right:10px}
-.hero-art{position:relative;max-width:500px;width:100%;justify-self:end;margin-bottom:24px}
-.hero-art svg{width:100%;height:auto;display:block}
-.hero-note{position:absolute;bottom:-12px;left:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px;font:500 .875rem var(--mono);box-shadow:var(--shadow);color:var(--muted)}
-.hero-note b{display:block;color:var(--accent);font-size:1.25rem}
-section{padding-block:var(--sec);border-top:1px solid var(--line)}
-section.hero{border:0}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px 40px;margin-bottom:clamp(32px,5vw,48px);flex-wrap:wrap}
-.section-head h2{font-size:clamp(2rem,4.6vw,3.25rem);line-height:1.1;letter-spacing:-.04em;margin:12px 0 0}
-.section-head p{max-width:30rem;color:var(--muted);margin:0;font-size:1.0625rem}
-.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:var(--gap)}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:clamp(24px,3.5vw,36px)}
-.panel h3{margin:0 0 16px;font-size:1.3125rem;line-height:1.35}
-.panel p{color:var(--muted);margin:0 0 16px}.panel p:last-child{margin-bottom:0}
-.panel strong{color:var(--text)}
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}
-.stat{background:var(--surface2);border:1px solid var(--line);padding:18px;border-radius:12px}
-.stat b{display:block;color:var(--accent);font-size:2rem;line-height:1.2;letter-spacing:-.03em}
-.stat small{color:var(--muted);font:500 .8125rem/1.4 var(--mono);display:block;margin-top:4px}
-.chips{display:flex;gap:10px;flex-wrap:wrap}
-.chip{font:500 .8125rem/1.3 var(--mono);padding:7px 12px;border:1px solid var(--line);border-radius:8px;color:var(--text);background:var(--surface2)}
-.mini-label{font:500 .8125rem var(--mono);color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;margin:28px 0 12px}.mini-label:first-of-type{margin-top:0}
-.project-tools{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:28px}
-.filters{display:flex;gap:10px;flex-wrap:wrap}
-.filters button{background:transparent;border:2px solid var(--line);color:var(--muted);border-radius:999px;min-height:44px;padding:8px 18px;font:500 .875rem var(--mono);cursor:pointer}
-.filters button.active,.filters button:hover{background:var(--btn);border-color:var(--btn);color:var(--btnfg)}
-.project-count{font:500 .875rem var(--mono);color:var(--muted)}
-.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
-.project{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .25s,border-color .25s,box-shadow .25s}
-.project-art{height:190px;background:linear-gradient(140deg,#172a32,#101722)}.project-art svg,.modal-art svg{width:100%;height:100%;display:block}
-.project-body{padding:24px;display:flex;flex-direction:column;flex:1}
-.project-meta{display:flex;justify-content:space-between;gap:12px;color:var(--accent);font:500 .8125rem var(--mono);text-transform:uppercase}
-.project h3{font-size:1.1875rem;line-height:1.4;margin:12px 0}
-.project p{color:var(--muted);font-size:.9375rem;margin:0 0 20px;flex:1}
-.more{font:500 .875rem var(--mono);color:var(--accent);margin-top:20px}
-.timeline{max-width:900px;margin:0 0 0 8px;padding:0;border-left:2px solid var(--line)}
-.event{position:relative;padding:0 0 40px 32px;list-style:none}.event:last-child{padding-bottom:0}
-.event:before{content:"";position:absolute;left:-8px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--bg)}
-.event time{font:500 .875rem var(--mono);color:var(--accent)}
-.event h3{margin:8px 0 4px;font-size:1.375rem;line-height:1.35}
-.event .org{color:var(--cyan);font-size:.9375rem;font-weight:600}
-.event p{color:var(--muted);max-width:46rem;margin:12px 0 0}
-.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--gap)}
-.skill-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:clamp(24px,3.5vw,32px)}
-.skill-icon{width:48px;height:48px;border-radius:12px;background:var(--surface2);border:1px solid var(--line);color:var(--accent);display:grid;place-items:center;font-size:1.4rem;margin-bottom:20px}
-.skill-card h3{margin:0 0 12px;font-size:1.25rem}.skill-card p{color:var(--muted);font-size:1rem;margin:0}
-.earlier{margin-top:clamp(32px,5vw,48px);max-width:46rem}.earlier h3{margin:0 0 12px;font-size:1.25rem}.earlier p{color:var(--muted);margin:0}
-.contact-box{border:2px solid var(--line);border-radius:20px;padding:clamp(28px,6vw,64px);background:var(--surface);display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
-.contact-box h2{font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.08;letter-spacing:-.04em;margin:16px 0}
-.contact-box p{color:var(--muted);max-width:36rem;margin:0}
-.contact-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:32px}
-.contact-side{display:flex;flex-direction:column;gap:12px;min-width:210px}
-.contact-side a{border:2px solid var(--line);border-radius:10px;min-height:48px;display:flex;align-items:center;padding:10px 16px;font:500 .9375rem var(--mono);color:var(--muted)}
-.contact-side a:hover{border-color:var(--accent);color:var(--accent)}
-footer{padding-block:32px 48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font:500 .875rem var(--mono);border-top:1px solid var(--line)}
-dialog{width:min(760px,calc(100% - 32px));max-height:88vh;overflow:auto;background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:18px;padding:0;margin:auto}
-dialog::backdrop{background:#03060bcc;backdrop-filter:blur(5px)}
-.modal-art{height:220px;background:linear-gradient(140deg,#172a32,#101722)}
-.modal-content{padding:clamp(24px,4vw,36px)}.modal-content h3{font-size:1.625rem;margin:10px 0 12px;line-height:1.3}
-.modal-content p,.modal-content li{color:var(--muted);font-size:1rem}.modal-content ul{padding-left:22px;margin:16px 0 24px}.modal-content li{margin-bottom:8px}
-.modal-close{float:right;margin:0 0 12px 12px;min-height:44px;background:var(--surface2);border:2px solid var(--line);border-radius:10px;padding:8px 16px;cursor:pointer;font-weight:600}
-/* Desktop-only motion & hover effects */
-@media (min-width:901px) and (prefers-reduced-motion:no-preference){
- html{scroll-behavior:smooth}
- .orbit{animation:orbit 32s linear infinite;transform-origin:250px 245px}.orbit2{animation:orbit 42s linear infinite reverse;transform-origin:250px 245px}
- .float{animation:float 5s ease-in-out infinite}
- #rotating{transition:opacity .2s}
- @keyframes orbit{to{transform:rotate(360deg)}}@keyframes float{50%{transform:translateY(-10px)}}
-}
-@media (min-width:901px) and (hover:hover) and (prefers-reduced-motion:no-preference){
- .button:hover,.navcta:hover{transform:translateY(-2px);filter:brightness(1.07)}
- .project:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:var(--shadow)}
-}
-@media (max-width:900px){
- .hero,.about-grid,.contact-box{grid-template-columns:1fr}.hero-art{justify-self:center;max-width:420px}
- .projects{grid-template-columns:repeat(2,1fr)}
- .menu{display:inline-grid}.navcta{display:none}
- .navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);padding:16px var(--gutter) 24px;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:4px}
- .navlinks.open{display:flex}.navlinks a{font-size:1rem;padding:14px 12px}
- .progress{display:none}
-}
-@media (max-width:650px){
- .projects,.skills-grid{grid-template-columns:1fr}.contact-side{min-width:0}.hero-actions .button{flex:1 1 100%}
- .stats{gap:12px}.timeline{margin-left:6px}.event{padding-left:26px}
-}
+  :root{
+    --bg:#070b12; --bg2:#0b1120; --panel:#0f1726; --line:rgba(148,163,184,.14);
+    --ink:#e8eef7; --mut:#8fa1b8; --acc:#38bdf8; --acc2:#818cf8; --amber:#fbbf24;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  [data-theme="light"]{ --bg:#f5f8fc; --bg2:#ffffff; --panel:#ffffff; --line:rgba(15,23,42,.14); --ink:#0b1526; --mut:#46566e; --acc:#0369a1; --acc2:#4f46e5; --amber:#b45309; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+  ::selection{background:rgba(56,189,248,.3)}
+  a{color:var(--acc)}
+  .icon{width:18px;height:18px;flex:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+  .skip{position:absolute;left:-999px;top:0;background:var(--acc);color:#fff;padding:10px 16px;z-index:200}
+  .skip:focus{left:12px;top:12px}
+  .kicker{font:700 11px/1 var(--mono);letter-spacing:.28em;text-transform:uppercase;color:var(--acc);display:flex;gap:10px;align-items:center}
+  .grad{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* category colour schemes */
+  .c-cloud{--gc:#38bdf8}.c-net{--gc:#818cf8}.c-sec{--gc:#fbbf24}.c-sys{--gc:#34d399}.c-pro{--gc:#f472b6}
+  [data-theme="light"] .c-cloud{--gc:#0369a1}[data-theme="light"] .c-net{--gc:#4f46e5}
+  [data-theme="light"] .c-sec{--gc:#b45309}[data-theme="light"] .c-sys{--gc:#047857}
+  [data-theme="light"] .c-pro{--gc:#be185d}
+
+  .site-head{position:sticky;top:0;z-index:80;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .site-head .wrap{display:flex;align-items:center;gap:26px;height:66px}
+  .logo{font:700 16px/1 var(--sans);color:var(--ink);text-decoration:none}
+  .logo b{color:var(--acc)}
+  .site-head nav{display:flex;gap:18px;margin-left:auto;align-items:center}
+  .site-head nav a{color:var(--mut);text-decoration:none;font:500 13.5px/1 var(--sans);transition:color .2s}
+  .site-head nav a:hover,.site-head nav a[aria-current]{color:var(--ink)}
+  .head-actions{display:flex;gap:10px;align-items:center}
+  .icon-btn{display:grid;place-items:center;width:38px;height:38px;border-radius:11px;border:1px solid var(--line);background:transparent;color:var(--mut);cursor:pointer;transition:.2s}
+  .icon-btn:hover{color:var(--acc);border-color:var(--acc)}
+  .cv-btn{display:inline-flex;gap:8px;align-items:center;padding:9px 15px;border-radius:11px;border:1px solid color-mix(in srgb,var(--acc) 45%,transparent);color:var(--acc);text-decoration:none;font:600 13px/1 var(--sans);transition:.2s}
+  .cv-btn:hover{background:color-mix(in srgb,var(--acc) 12%,transparent)}
+
+  main>section.wrap{padding:88px 26px 0}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .hero h1{font:800 clamp(40px,6.4vw,72px)/1.08 var(--sans);letter-spacing:-.025em;margin:20px 0 18px}
+  .sub{max-width:600px;color:var(--mut);font-size:17px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0 26px}
+  .btn{display:inline-flex;gap:9px;align-items:center;padding:13px 20px;border-radius:13px;font:600 14px/1 var(--sans);text-decoration:none;transition:.25s;border:1px solid transparent}
+  .btn-primary{background:var(--acc);color:#04121e}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px color-mix(in srgb,var(--acc) 35%,transparent)}
+  .btn-ghost{border-color:var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--acc);color:var(--acc)}
+  .hero-badges{display:flex;gap:10px;flex-wrap:wrap}
+  .hbadge{font:600 11.5px/1 var(--mono);color:var(--mut);border:1px solid var(--line);background:var(--bg2);border-radius:999px;padding:8px 13px}
+  .hbadge b{color:var(--acc)}
+  .portrait{position:relative;justify-self:center;width:min(360px,100%)}
+  .portrait-ring{position:absolute;inset:-16px;border-radius:26px;background:conic-gradient(from 0deg,var(--acc),var(--acc2),var(--amber),var(--acc));opacity:.5;filter:blur(14px)}
+  .portrait-frame{position:relative;aspect-ratio:4/5;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:var(--panel)}
+  .portrait-img{width:100%;height:100%;object-fit:cover;display:block}
+  .portrait-fallback{position:absolute;inset:0;display:grid;place-items:center;font:800 64px/1 var(--mono);color:var(--acc);background:linear-gradient(160deg,var(--bg2),var(--panel))}
+  .portrait.no-img .portrait-img{display:none}
+  .portrait:not(.no-img) .portrait-fallback{display:none}
+  .p-badge{position:absolute;left:-14px;padding:10px 14px;border-radius:12px;background:var(--panel);border:1px solid var(--line);font:700 11.5px/1 var(--mono);color:var(--ink);box-shadow:0 12px 30px rgba(0,0,0,.3)}
+  .p-badge small{display:block;color:var(--mut);font-weight:600;margin-top:4px}
+  .p-badge.b1{top:8%} .p-badge.b2{bottom:10%;left:auto;right:-14px}
+  .p-badge .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#34d399;margin-right:7px}
+
+  .marquee{margin-top:56px;border-block:1px solid var(--line);overflow:hidden;padding:13px 0;background:var(--bg2)}
+  .mq-track{display:flex;width:max-content}
+  .mq-track span{font:700 12px/1 var(--mono);letter-spacing:.24em;color:var(--mut);padding:0 26px;white-space:nowrap}
+  .mq-track span i{font-style:normal;color:var(--acc);padding-left:26px}
+
+  .sec-head{max-width:640px;margin-bottom:36px}
+  .sec-head h2{font:800 clamp(28px,4vw,42px)/1.22 var(--sans);letter-spacing:-.02em;margin:14px 0 14px}
+  .sec-head p{color:var(--mut)}
+
+  .now-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:24px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:32px}
+  .card h3{font:700 21px/1.35 var(--sans);margin-bottom:16px}
+  .card p{color:var(--mut);margin-bottom:14px;line-height:1.7}
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+  .stat{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  .stat b{display:block;font:800 30px/1 var(--mono);color:var(--acc)}
+  .stat>span{font:600 11px/1.6 var(--mono);letter-spacing:.08em;color:var(--mut)}
+  .group-title{font:700 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--gc,var(--acc));margin:20px 0 12px;display:flex;gap:8px;align-items:center}
+  .group-title:first-of-type{margin-top:0}
+  .mchips{display:flex;gap:8px;flex-wrap:wrap;list-style:none}
+  .mchip{display:inline-flex;gap:7px;align-items:center;font:600 12px/1 var(--mono);color:var(--ink);background:var(--bg2);border:1px solid color-mix(in srgb,var(--gc) 32%,var(--line));border-radius:8px;padding:8px 11px;transition:transform .2s,border-color .2s}
+  .mchip:hover{transform:translateY(-2px);border-color:var(--gc)}
+  .mchip .icon{width:14px;height:14px;color:var(--gc)}
+
+  .xp-teaser{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .xp-card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:14px;transition:transform .3s,border-color .3s}
+  .xp-card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--acc) 50%,transparent)}
+  .xp-when{font:700 11px/1 var(--mono);letter-spacing:.12em;color:var(--acc);text-transform:uppercase}
+  .xp-card h3{font:700 18px/1.35 var(--sans)}
+  .xp-org{color:var(--mut);font-size:13.5px}
+  .xp-card>p:not(.xp-org){color:var(--mut);font-size:14px;flex:1;line-height:1.7}
+  .xp-link{font:600 12.5px/1 var(--mono);color:var(--acc);text-decoration:none;display:inline-flex;gap:7px;align-items:center}
+  .xp-link:hover{text-decoration:underline}
+
+  .chip-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .chip-group{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px}
+  .chips{display:flex;gap:9px;flex-wrap:wrap}
+  .chip{cursor:pointer;display:inline-flex;gap:8px;align-items:center;font:600 12.5px/1 var(--mono);color:var(--ink);background:var(--bg2);border:1px solid color-mix(in srgb,var(--gc,var(--acc)) 30%,var(--line));border-radius:10px;padding:10px 13px;transition:transform .2s,border-color .2s,color .2s,box-shadow .2s}
+  .chip .icon{color:var(--gc,var(--acc))}
+  .chip:hover{transform:translateY(-2px);border-color:var(--gc);color:var(--gc);box-shadow:0 6px 18px color-mix(in srgb,var(--gc) 22%,transparent)}
+  .chip.is-active{background:color-mix(in srgb,var(--gc) 14%,transparent);border-color:var(--gc);color:var(--gc);box-shadow:0 0 0 3px color-mix(in srgb,var(--gc) 22%,transparent)}
+  .chip-console{margin-top:24px;display:flex;gap:12px;align-items:flex-start;background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:12px;padding:16px 18px;font:13.5px/1.7 var(--mono);color:var(--ink);min-height:56px}
+  .chip-console .p{color:var(--acc);font-weight:700}
+  .chip-console .hint{color:var(--mut)}
+
+  .past-card{position:relative;overflow:hidden;background:linear-gradient(140deg,color-mix(in srgb,var(--acc2) 14%,var(--panel)),var(--panel));border:1px solid var(--line);border-radius:20px;padding:36px}
+  .past-card h3{font:800 26px/1.25 var(--sans);margin:12px 0 12px}
+  .past-card p{color:var(--mut);max-width:640px;line-height:1.7}
+  .contact-grid{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+
+  .site-foot{border-top:1px solid var(--line);margin-top:96px;padding:44px 0 112px}
+  .foot-note{color:var(--mut);font-size:13px}
+  .foot-links{display:flex;gap:12px}
+  .foot-links a{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;border:1px solid var(--line);color:var(--mut);transition:.2s}
+  .foot-links a:hover{color:var(--acc);border-color:var(--acc);transform:translateY(-2px)}
+
+  @media (max-width:980px){
+    .hero-grid,.now-grid,.chip-groups,.xp-teaser{grid-template-columns:1fr}
+    .site-head nav{display:none}
+    .portrait{margin-top:10px}
+  }
+   /* rotating headline word — stacked grid = no layout shift ever */
+  .rotor{display:inline-grid;vertical-align:baseline}
+  .rotor>span{grid-area:1/1;opacity:0;transform:translateY(.4em);transition:opacity .4s ease,transform .4s ease;white-space:nowrap}
+  .rotor>span.on{opacity:1;transform:none}
+  .p-badge .dot{animation:dotpulse 2.2s ease-in-out infinite}
+  @keyframes dotpulse{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,.5)}50%{box-shadow:0 0 0 6px rgba(52,211,153,0)}}
+  @media (max-width:560px){.hero h1{font-size:34px}}
+  @media (prefers-reduced-motion:reduce){.rotor>span{transition:none}.p-badge .dot{animation:none}}
 </style>
 </head>
-<body>
-<a class="skip" href="#main">Skip to main content</a>
-<div class="progress" id="progress"></div>
-<header><div class="wrap nav"><a class="brand" href="#home">Mohamed Hany Zaki<span>.</span></a>
-<nav class="navlinks" id="navlinks" aria-label="Main"><a href="#now">Who I am now</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Tech stack</a><a href="#past">Who I was</a><a href="#contact">Contact</a></nav>
-<div class="nav-actions"><a class="navcta" href="https://drive.google.com/file/d/18yeBM4c6M8QiKXfR8pw_dG_Mk-k0BBrl/view?usp=sharing" target="_blank" rel="noopener">View CV ↗</a>
-<button class="icon-btn" id="theme" type="button" aria-label="Switch to light mode">☀</button>
-<button class="icon-btn menu" id="menu" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navlinks">☰</button></div></div></header>
-<main id="main"><div class="wrap">
-<section class="hero" id="home">
-<div class="hero-text"><div class="eyebrow">Computer & Systems Engineering — Cairo, Egypt</div><h1>Building the<br><span class="accent" id="rotating">cloud</span> behind<br>what’s next.</h1><p class="hero-copy">I’m Mohamed Zaki — a cloud and infrastructure enthusiast focused on AWS architecture, networking, security, and reliable systems. I enjoy turning complex infrastructure into something clear, connected, and dependable.</p><div class="hero-actions"><a class="button" href="#projects">Explore my work ↘</a><a class="button ghost" href="https://github.com/SoulRe/SoulRe.github.io/blob/main/Mohamed_Zaki_CV.pdf" target="_blank" rel="noopener">View CV ↗</a></div><ul class="quickfacts"><li>AWS Cloud Diploma — 921/1000</li><li>NTI — 540 hours — 96%</li><li>Computer & Systems Engineering</li></ul></div>
-<div class="hero-art"><svg viewBox="0 0 500 490" role="img" aria-label="Illustration of connected cloud infrastructure"><defs><linearGradient id="cloudGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="var(--accent)"/><stop offset="1" stop-color="var(--cyan)"/></linearGradient></defs><circle cx="250" cy="245" r="190" fill="none" stroke="var(--line)" stroke-dasharray="3 9"/><circle cx="250" cy="245" r="145" fill="none" stroke="var(--accent)" stroke-opacity=".4" stroke-dasharray="5 8" class="orbit"/><g class="orbit2"><circle cx="250" cy="55" r="6" fill="var(--accent)"/><circle cx="440" cy="245" r="6" fill="var(--cyan)"/></g><g stroke="var(--cyan)" stroke-opacity=".5" stroke-width="1.5" fill="none"><path d="M250 245L100 130M250 245L400 130M250 245L100 360M250 245L400 360"/><path d="M100 130V85M400 130V85M100 360V405M400 360V405"/></g><g class="float"><rect x="160" y="155" width="180" height="180" rx="35" fill="var(--surface)" stroke="url(#cloudGrad)" stroke-width="3"/><path d="M207 246c-20-1-25-28-8-37 5-25 42-34 59-12 20-8 43 7 42 29 19 15 7 43-16 43h-76c-25 0-30-22-1-23z" fill="none" stroke="url(#cloudGrad)" stroke-width="6" stroke-linecap="round"/><text x="250" y="300" fill="var(--text)" font-family="Manrope" font-size="14" text-anchor="middle" font-weight="800">AWS CLOUD</text></g><g fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"><rect x="40" y="62" width="120" height="48" rx="10"/><rect x="340" y="62" width="120" height="48" rx="10"/><rect x="40" y="382" width="120" height="48" rx="10"/><rect x="340" y="382" width="120" height="48" rx="10"/></g><g fill="var(--accent)" font-family="DM Mono" font-size="13" font-weight="500" text-anchor="middle"><text x="100" y="91">NETWORK</text><text x="400" y="91">SECURITY</text><text x="100" y="411">COMPUTE</text><text x="400" y="411">STORAGE</text></g></svg><div class="hero-note"><b>921 / 1000</b>GBG AWS Cloud Diploma</div></div>
-</section>
+<body data-page="home">
+<a class="skip" href="#main">Skip to content</a>
 
-<section id="now"><div class="section-head"><div><div class="kicker">The present chapter</div><h2>Who I am now</h2></div><p>Computer and Systems Engineer focused on the infrastructure that keeps applications, networks, and people connected.</p></div><div class="about-grid"><div class="panel"><h3>From engineering fundamentals to cloud and infrastructure.</h3><p>I’m Mohamed Zaki, a Computer and Systems Engineering graduate from Zagazig University. My current direction is infrastructure, IT operations, networking, systems administration, and cloud architecture.</p><p>I enjoy working across the layers that make technology dependable: connectivity, compute, storage, identity, security, deployment, monitoring, and recovery. My experience includes AWS cloud engineering training and internship work, alongside customer-facing internet troubleshooting and technical support.</p><p><strong>Engineering foundation:</strong> B.Sc. Computer and Systems Engineering, Faculty of Engineering, Zagazig University (2020–2025).</p><div class="stats"><div class="stat"><b>921</b><small>GBG AWS Diploma / 1000</small></div><div class="stat"><b>96%</b><small>NTI Cloud Program</small></div><div class="stat"><b>540h</b><small>NTI Cloud Training</small></div><div class="stat"><b>25–35</b><small>Support cases / day</small></div></div></div><div class="panel"><h3>What defines my work today</h3><div class="mini-label">Cloud & infrastructure</div><div class="chips"><span class="chip">AWS</span><span class="chip">EC2</span><span class="chip">S3</span><span class="chip">VPC</span><span class="chip">IAM</span><span class="chip">RDS</span><span class="chip">Lambda</span><span class="chip">CloudFront</span><span class="chip">Systems Manager</span></div><div class="mini-label">Networking & security</div><div class="chips"><span class="chip">TCP/IP</span><span class="chip">DNS</span><span class="chip">Routing</span><span class="chip">VPN</span><span class="chip">Transit Gateway</span><span class="chip">Network Firewall</span><span class="chip">WAF</span></div><div class="mini-label">IT, systems & platforms</div><div class="chips"><span class="chip">Red Hat Linux</span><span class="chip">Windows Server</span><span class="chip">Active Directory</span><span class="chip">VMware</span><span class="chip">Docker</span><span class="chip">OpenShift</span><span class="chip">Technical Support</span></div></div></div></section>
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-current="page">Mohamed Hany Zaki<b>.</b></a>
+    <nav>
+      <a href="#now">Who I am now</a>
+      <a href="#skills">Tech stack</a>
+      <a href="#contact">Contact</a>
+      <a href="projects.html">Projects &amp; Docs</a>
+      <a href="experience.html">Experience</a>
+      <a href="certificates.html">Certificates</a>
+    </nav>
+    <div class="head-actions">
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle theme"><svg class="icon"><use data-theme-icon href="#i-sun"></use></svg></button>
+      <button class="icon-btn" data-open-drawer aria-label="Open projects sidebar"><svg class="icon"><use href="#i-menu"></use></svg></button>
+      <a class="cv-btn" href="https://drive.google.com/file/d/1GV8J19O9gO_ftwLFeHtJlwuTpOoafbgl/view?usp=sharing" target="_blank" rel="noopener">View CV <svg class="icon"><use href="#i-arrow-up-right"></use></svg></a>
+    </div>
+  </div>
+</header>
 
-<section id="projects"><div class="section-head"><div><div class="kicker">Selected hands-on work</div><h2>Projects & labs</h2></div><p>Infrastructure challenges explored through design, configuration, testing, and documentation. Select a card to see more.</p></div><div class="project-tools"><div class="filters" id="filters" role="group" aria-label="Filter projects"><button class="active" data-filter="All" aria-pressed="true">All work</button><button data-filter="Networking" aria-pressed="false">Networking</button><button data-filter="Security" aria-pressed="false">Security</button><button data-filter="Cloud" aria-pressed="false">Cloud</button><button data-filter="Systems" aria-pressed="false">Systems</button></div><span class="project-count" id="projectCount" aria-live="polite">11 projects</span></div><div class="projects" id="projectsGrid"></div></section>
+<main id="main">
+  <section class="hero wrap" id="home">
+    <div class="hero-grid">
+      <div>
+        <p class="kicker" data-intro><svg class="icon"><use href="#i-spark"></use></svg> Computer &amp; Systems Engineering — Cairo, Egypt</p>
+        <<h1 data-intro aria-label="Building the cloud, network, support and infrastructure behind what’s next.">Building the <span class="rotor" id="wordRotor" aria-hidden="true"><span class="grad on">cloud</span><span class="grad">network</span><span class="grad">support</span><span class="grad">infrastructure</span></span> behind what’s next.</h1>
+        <p class="sub" data-intro>I’m Mohamed Zaki — a cloud and infrastructure enthusiast focused on AWS architecture, networking, security, and reliable systems. I enjoy turning complex infrastructure into something clear, connected, and dependable.</p>
+        <div class="hero-cta" data-intro>
+          <a class="btn btn-primary" href="projects.html">Explore my work <svg class="icon"><use href="#i-arrow-right"></use></svg></a>
+          <a class="btn btn-ghost" href="experience.html">Full experience log <svg class="icon"><use href="#i-arrow-up-right"></use></svg></a>
+        </div>
+        <div class="hero-badges" data-intro>
+          <span class="hbadge"><b>921/1000</b> — GBG AWS Cloud Diploma</span>
+          <span class="hbadge"><b>540h</b> — NTI Cloud Program (96%)</span>
+          <span class="hbadge"><b>AWS</b> Certified Cloud Practitioner</span>
+        </div>
+      </div>
+      <div class="portrait" data-intro>
+        <div class="portrait-ring" aria-hidden="true"></div>
+        <div class="portrait-frame">
+          <img class="portrait-img"src="me_upscaled.png"alt="Portrait of Mohamed Zaki">
+          <div class="portrait-fallback" aria-hidden="true">MZ</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section id="experience"><div class="section-head"><div><div class="kicker">Building and supporting systems</div><h2>Infrastructure & IT experience</h2></div><p>My professional work and applied training, ordered by date, focused on cloud, networks, systems, and IT support.</p></div><ol class="timeline" style="margin-block:0"><li class="event"><time>May 2026 — Oct 2026</time><h3>Technical Support Expert</h3><div class="org">Sutherland</div><p>Resolved 25–35 home internet customer issues per day across hardware, software, network, and account topics. Guided customers through structured troubleshooting, documented cases in ticketing systems, and escalated complex issues to higher-tier support.</p></li><li class="event"><time>Feb 2026 — May 2026</time><h3>AWS Cloud Intern</h3><div class="org">Global Brands Group — New Cairo, Hybrid</div><p>Worked on AWS hub-and-spoke networking, centralized traffic inspection, containerized and serverless deployments, EC2 fleet management, a MySQL migration using AWS DMS, and disaster recovery validation with Elastic Disaster Recovery. Completed the GBG Academy AWS Cloud Diploma with 921/1000 and 100% attendance.</p></li><li class="event"><time>Oct 2025 — Jan 2026</time><h3>Cloud Solutions Architect Program</h3><div class="org">National Telecommunication Institute (NTI) — Digital Egypt Youth Program</div><p>Completed 540 hours of structured cloud solutions architect training, achieving 96%. Focused on cloud architecture and the infrastructure concepts behind secure, reliable deployments.</p></li></ol></section>
+  <div class="marquee" data-marquee aria-hidden="true">
+    <div class="mq-track" data-marquee-track>
+      <span>AWS<i>✦</i></span><span>CLOUD<i>✦</i></span><span>NETWORK<i>✦</i></span><span>SECURITY<i>✦</i></span><span>COMPUTE<i>✦</i></span><span>STORAGE<i>✦</i></span><span>TRANSIT GATEWAY<i>✦</i></span><span>IAM<i>✦</i></span><span>SERVERLESS<i>✦</i></span><span>DISASTER RECOVERY<i>✦</i></span>
+      <span>AWS<i>✦</i></span><span>CLOUD<i>✦</i></span><span>NETWORK<i>✦</i></span><span>SECURITY<i>✦</i></span><span>COMPUTE<i>✦</i></span><span>STORAGE<i>✦</i></span><span>TRANSIT GATEWAY<i>✦</i></span><span>IAM<i>✦</i></span><span>SERVERLESS<i>✦</i></span><span>DISASTER RECOVERY<i>✦</i></span>
+    </div>
+  </div>
 
-<section id="skills"><div class="section-head"><div><div class="kicker">My technical toolkit</div><h2>Skills & capabilities</h2></div><p>The tools and disciplines I’m actively building on: cloud platforms, networking, systems, and IT operations.</p></div><div class="skills-grid"><div class="skill-card"><div class="skill-icon" aria-hidden="true">☁</div><h3>Cloud & infrastructure</h3><p>AWS EC2, S3, EBS, EFS, VPC, IAM, RDS, Lambda, API Gateway, ECR, CloudFront, CloudWatch, Systems Manager, Route 53, DMS, Elastic Disaster Recovery, Elastic Beanstalk, App Runner, Amplify.</p></div><div class="skill-card"><div class="skill-icon" aria-hidden="true">⌘</div><h3>Networking & security</h3><p>TCP/IP, DNS, DHCP, subnetting, switching, routing, VPN, VPC peering, Transit Gateway, Network Firewall, WAF, MFA, IAM roles, and least-privilege access.</p></div><div class="skill-card"><div class="skill-icon" aria-hidden="true">▣</div><h3>Systems & virtualization</h3><p>Red Hat Linux, Windows 10/11, Windows Server, Microsoft 365, Active Directory, VMware vSphere/ESXi, Docker, OpenShift, remote support.</p></div><div class="skill-card"><div class="skill-icon" aria-hidden="true">↗</div><h3>Professional</h3><p>Technical troubleshooting, customer communication, documentation, teamwork, leadership, project coordination, presentations, and problem solving.</p></div></div></section>
+  <section id="now" class="wrap">
+    <div class="sec-head" data-reveal>
+      <p class="kicker">The present chapter</p>
+      <h2>Who I am now</h2>
+      <p>Computer and Systems Engineer focused on the infrastructure that keeps applications, networks, and people connected.</p>
+    </div>
+    <div class="now-grid">
+      <div class="card" data-reveal>
+        <h3>From engineering fundamentals to cloud and infrastructure.</h3>
+        <p>I’m Mohamed Zaki, a Computer and Systems Engineering graduate from Zagazig University. My current direction is infrastructure, IT operations, networking, systems administration, and cloud architecture.</p>
+        <p>I enjoy working across the layers that make technology dependable: connectivity, compute, storage, identity, security, deployment, monitoring, and recovery. My experience includes AWS cloud engineering training and internship work, alongside customer-facing internet troubleshooting and technical support.</p>
+        <p><strong>Engineering foundation:</strong> B.Sc. Computer and Systems Engineering, Faculty of Engineering, Zagazig University (2020–2025).</p>
+        <div class="stat-grid" data-stagger>
+          <div class="stat"><b><span data-counter="921">0</span></b><span>GBG AWS Diploma / 1000</span></div>
+          <div class="stat"><b><span data-counter="96" data-suffix="%">0</span></b><span>NTI Cloud Program</span></div>
+          <div class="stat"><b><span data-counter="540" data-suffix="h">0</span></b><span>NTI Cloud Training</span></div>
+          <div class="stat"><b>25–35</b><span>Support cases / day</span></div>
+        </div>
+      </div>
+      <div class="card" data-reveal>
+        <h3>What defines my work today</h3>
+        <p class="group-title c-cloud"><svg class="icon"><use href="#i-cloud"></use></svg> Cloud &amp; infrastructure</p>
+        <ul class="mchips" data-stagger>
+          <li class="mchip c-cloud"><svg class="icon"><use href="#i-server"></use></svg>AWS EC2</li>
+          <li class="mchip c-cloud"><svg class="icon"><use href="#i-box"></use></svg>S3</li>
+          <li class="mchip c-cloud"><svg class="icon"><use href="#i-database"></use></svg>EBS</li>
+          <li class="mchip c-cloud"><svg class="icon"><use href="#i-folder"></use></svg>EFS</li>
+          <li class="mchip c-cloud"><svg class="icon"><use href="#i-network"></use></svg>VPC</li>
+          <li class="mchip c-cloud"><svg class="icon"><use href="#i-lock"></use></svg>IAM</li>
+          <li class="mchip c-cloud"><svg class="icon"><use href="#i-database"></use></svg>RDS</li>
+          <li class="mchip c-cloud"><svg class="icon"><use href="#i-zap"></use></svg>Lambda</li>
+          <li class="mchip c-cloud"><svg class="icon"><use href="#i-globe"></use></svg>CloudFront</li>
+          <li class="mchip c-cloud"><svg class="icon"><use href="#i-terminal"></use></svg>Systems Manager</li>
+        </ul>
+        <p class="group-title c-net"><svg class="icon"><use href="#i-route"></use></svg> Networking &amp; security</p>
+        <ul class="mchips" data-stagger>
+          <li class="mchip c-net"><svg class="icon"><use href="#i-network"></use></svg>TCP/IP</li>
+          <li class="mchip c-net"><svg class="icon"><use href="#i-globe"></use></svg>DNS</li>
+          <li class="mchip c-net"><svg class="icon"><use href="#i-route"></use></svg>Routing</li>
+          <li class="mchip c-net"><svg class="icon"><use href="#i-lock"></use></svg>VPN</li>
+          <li class="mchip c-net"><svg class="icon"><use href="#i-layers"></use></svg>Transit Gateway</li>
+          <li class="mchip c-net"><svg class="icon"><use href="#i-shield"></use></svg>Network Firewall</li>
+          <li class="mchip c-sec"><svg class="icon"><use href="#i-filter"></use></svg>WAF</li>
+        </ul>
+        <p class="group-title c-sys"><svg class="icon"><use href="#i-cpu"></use></svg> IT, systems &amp; platforms</p>
+        <ul class="mchips" data-stagger>
+          <li class="mchip c-sys"><svg class="icon"><use href="#i-terminal"></use></svg>Red Hat Linux</li>
+          <li class="mchip c-sys"><svg class="icon"><use href="#i-server"></use></svg>Windows Server</li>
+          <li class="mchip c-sys"><svg class="icon"><use href="#i-user"></use></svg>Active Directory</li>
+          <li class="mchip c-sys"><svg class="icon"><use href="#i-layers"></use></svg>VMware</li>
+          <li class="mchip c-sys"><svg class="icon"><use href="#i-box"></use></svg>Docker</li>
+          <li class="mchip c-sys"><svg class="icon"><use href="#i-cpu"></use></svg>OpenShift</li>
+          <li class="mchip c-pro"><svg class="icon"><use href="#i-phone"></use></svg>Technical Support</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-<section id="past"><div class="section-head"><div><div class="kicker">The earlier chapter</div><h2>Who I was</h2></div><p>Before narrowing my direction toward infrastructure and cloud, I explored artificial intelligence, machine learning, and data science through training, projects, and community work.</p></div><ol class="timeline" style="margin-block:0"><li class="event"><time>Jan 2025 — Feb 2025</time><h3>Artificial Intelligence Level 3</h3><div class="org">Orange Digital Center — 96 hours</div><p>Completed an advanced AI learning program.</p></li><li class="event"><time>Nov 2024 — Dec 2024</time><h3>AI Trainer (RLHF) — Freelance</h3><div class="org">Outlier.AI</div><p>Reviewed AI-generated prompts and provided detailed feedback to improve prompt quality and model performance.</p></li><li class="event"><time>Mar 2024 — Dec 2024</time><h3>AWS Machine Learning Engineer Track</h3><div class="org">Digital Egypt Pioneers Initiative (DEPI) — Team Leader</div><p>Participated in a machine learning engineering track and served as team leader.</p></li><li class="event"><time>Mar 2024 — Oct 2024</time><h3>Applied Data Science</h3><div class="org">WorldQuant University</div><p>Studied applied data science and analytical workflows.</p></li><li class="event"><time>Aug 2023 — Sep 2023</time><h3>AI Summer Training</h3><div class="org">NTI and Zewail City of Science and Technology</div><p>Participated in summer training focused on artificial intelligence.</p></li><li class="event"><time>Nov 2022 — Oct 2023</time><h3>AI Technical Member</h3><div class="org">IEEE Zagazig Student Branch — Computer Society</div><p>Contributed as a technical member in the student branch’s Computer Society.</p></li></ol><div class="earlier"><h3>Earlier technical interests</h3><p>Python, SQL, Pandas, NumPy, Matplotlib, Jupyter, TensorFlow, Keras, machine learning, NLP, computer vision, CNNs, RNNs, GANs, and data visualization.</p></div></section>
+  <section id="experience" class="wrap">
+    <div class="sec-head" data-reveal>
+      <p class="kicker">Recent chapters</p>
+      <h2>Where I’ve been lately</h2>
+      <p>My three most recent roles — cloud internship, large-scale support operations, and 540 hours of architect training. The complete history lives in the experience log.</p>
+    </div>
+    <div class="xp-teaser">
+      <article class="xp-card" data-reveal>
+        <span class="xp-when">May 2026 — Oct 2026</span>
+        <h3>Technical Support Expert</h3>
+        <p class="xp-org">Sutherland — Cairo</p>
+        <p>Resolved 25–35 home-internet customer issues per day across hardware, software, network and account topics, inside required resolution times, with full ticket documentation and escalation.</p>
+        <a class="xp-link" href="experience.html#work-sutherland">Full entry <svg class="icon"><use href="#i-arrow-right"></use></svg></a>
+      </article>
+      <article class="xp-card" data-reveal>
+        <span class="xp-when">Feb 2026 — May 2026</span>
+        <h3>AWS Cloud Intern</h3>
+        <p class="xp-org">Global Brands Group — New Cairo, Hybrid</p>
+        <p>Built hub-and-spoke AWS networking with centralized inspection, deployed containerized &amp; serverless workloads, automated EC2 fleets, migrated MySQL across regions with DMS, and validated DR. Graduated the GBG AWS Diploma at 921/1000.</p>
+        <a class="xp-link" href="experience.html#work-gbg">Full entry <svg class="icon"><use href="#i-arrow-right"></use></svg></a>
+      </article>
+      <article class="xp-card" data-reveal>
+        <span class="xp-when">Oct 2025 — Jan 2026</span>
+        <h3>Cloud Solutions Architect Program</h3>
+        <p class="xp-org">NTI — Digital Egypt Youth Program</p>
+        <p>540 hours of cloud, virtualization and infrastructure design across Red Hat, VMware and AWS, scoring 96%. Ran containers on OpenShift and delivered a hybrid-cloud team capstone.</p>
+        <a class="xp-link" href="experience.html#training-nti">Full entry <svg class="icon"><use href="#i-arrow-right"></use></svg></a>
+      </article>
+    </div>
+  </section>
 
-<section id="contact"><div class="contact-box"><div><div class="kicker">Let’s connect</div><h2>Let’s build<br>something reliable.</h2><p>I’m interested in opportunities around cloud infrastructure, AWS, systems engineering, and technical support. If you’d like to discuss a role, a project, or an idea, I’d be glad to hear from you.</p><div class="contact-links"><a class="button" href="mailto:mohamed.h.af.zaki@gmail.com">Email me ↗</a><a class="button ghost" href="https://linkedin.com/in/mohamed-hany-zaki" target="_blank" rel="noopener">LinkedIn ↗</a></div></div><div class="contact-side"><a href="mailto:mohamed.h.af.zaki@gmail.com">✉ &nbsp;Email</a><a href="https://github.com/SoulRe" target="_blank" rel="noopener">⌘ &nbsp;GitHub</a><a href="https://linkedin.com/in/mohamed-hany-zaki" target="_blank" rel="noopener">↗ &nbsp;LinkedIn</a><a href="tel:+201551301048">☎ &nbsp;+20 155 130 1048</a></div></div></section>
-<footer><span>© <span id="year"></span> Mohamed Zaki</span><span>Designed around cloud, systems & curiosity — Cairo, Egypt</span></footer>
-</div></main>
-<dialog id="projectDialog" aria-label="Project details"><div id="dialogContent"></div></dialog>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <section id="skills" class="wrap">
+    <div class="sec-head" data-reveal>
+      <p class="kicker">My technical toolkit</p>
+      <h2>Skills &amp; capabilities — <span class="grad">click anything</span></h2>
+      <p>Hover to highlight, click any tool and the console below types out what I actually built with it.</p>
+    </div>
+    <div class="chip-groups">
+      <div class="chip-group" data-reveal>
+        <p class="group-title c-cloud"><svg class="icon"><use href="#i-cloud"></use></svg> Cloud &amp; infrastructure</p>
+        <div class="chips" data-stagger>
+          <button class="chip c-cloud" aria-pressed="false" data-note="Fleet of Linux EC2 instances from a custom AMI behind an ALB, scaled by Auto Scaling Groups — and managed agentlessly via Systems Manager, no SSH keys."><svg class="icon"><use href="#i-server"></use></svg>AWS EC2</button>
+          <button class="chip c-cloud" aria-pressed="false" data-note="Storefront assets served through CloudFront with the bucket locked to OAC-only access, plus cross-region replication for DR."><svg class="icon"><use href="#i-box"></use></svg>S3</button>
+          <button class="chip c-cloud" aria-pressed="false" data-note="Attached EBS volumes for data that must outlive any single instance, alongside AMIs as restorable backups."><svg class="icon"><use href="#i-database"></use></svg>EBS</button>
+          <button class="chip c-cloud" aria-pressed="false" data-note="Regional EFS file system with mount targets in multiple AZs — a file written on one instance was instantly visible on the other."><svg class="icon"><use href="#i-folder"></use></svg>EFS</button>
+          <button class="chip c-cloud" aria-pressed="false" data-note="Non-overlapping CIDR VPCs across AZs, peered privately and attached to a Transit Gateway hub."><svg class="icon"><use href="#i-network"></use></svg>VPC</button>
+          <button class="chip c-cloud" aria-pressed="false" data-note="Account-wide MFA enforcement policy, least-privilege read-only groups, and a DevOps role gated by MFA + tag conditions (Env=Dev)."><svg class="icon"><use href="#i-lock"></use></svg>IAM</button>
+          <button class="chip c-cloud" aria-pressed="false" data-note="Cross-region MySQL replication with a Multi-AZ standby — plus a live cross-region migration with AWS DMS at GBG."><svg class="icon"><use href="#i-database"></use></svg>RDS</button>
+          <button class="chip c-cloud" aria-pressed="false" data-note="Serverless endpoints behind API Gateway, compared against Beanstalk and App Runner on cost, scale and use case."><svg class="icon"><use href="#i-zap"></use></svg>Lambda</button>
+          <button class="chip c-cloud" aria-pressed="false" data-note="Global low-latency delivery for an e-commerce storefront, monitored with CloudWatch alarms on latency and 4xx/5xx rates."><svg class="icon"><use href="#i-globe"></use></svg>CloudFront</button>
+          <button class="chip c-cloud" aria-pressed="false" data-note="Zero-SSH fleet management: Session Manager shells, Run Command Apache installs, EventBridge-scheduled shutdowns."><svg class="icon"><use href="#i-terminal"></use></svg>Systems Manager</button>
+        </div>
+      </div>
+      <div class="chip-group" data-reveal>
+        <p class="group-title c-net"><svg class="icon"><use href="#i-route"></use></svg> Networking &amp; security</p>
+        <div class="chips" data-stagger>
+          <button class="chip c-net" aria-pressed="false" data-note="CCNA-curriculum grounding: switching, routing and subnetting practiced on Cisco labs and simulations."><svg class="icon"><use href="#i-network"></use></svg>TCP/IP</button>
+          <button class="chip c-net" aria-pressed="false" data-note="Route 53 DNS routing across a multi-region hub-and-spoke environment."><svg class="icon"><use href="#i-globe"></use></svg>DNS</button>
+          <button class="chip c-net" aria-pressed="false" data-note="Managed Transit Gateway route tables engineered so every packet transits the Network Firewall subnet."><svg class="icon"><use href="#i-route"></use></svg>Routing</button>
+          <button class="chip c-net" aria-pressed="false" data-note="Site-to-Site VPN linking Ireland ↔ London regions through the Transit Gateway, plus a Client VPN endpoint for admins."><svg class="icon"><use href="#i-lock"></use></svg>VPN</button>
+          <button class="chip c-net" aria-pressed="false" data-note="The hub of my hub-and-spoke design: spoke VPCs, cross-region VPNs and centralized inspection all attached here."><svg class="icon"><use href="#i-layers"></use></svg>Transit Gateway</button>
+          <button class="chip c-net" aria-pressed="false" data-note="Dedicated firewall subnets with routes forcing all internet↔workload traffic through AWS Network Firewall for inspection."><svg class="icon"><use href="#i-shield"></use></svg>Network Firewall</button>
+          <button class="chip c-sec" aria-pressed="false" data-note="Edge protection layered on the ALB/CloudFront path in the multi-region production-style design."><svg class="icon"><use href="#i-filter"></use></svg>WAF</button>
+        </div>
+      </div>
+      <div class="chip-group" data-reveal>
+        <p class="group-title c-sys"><svg class="icon"><use href="#i-cpu"></use></svg> IT, systems &amp; platforms</p>
+        <div class="chips" data-stagger>
+          <button class="chip c-sys" aria-pressed="false" data-note="Red Hat Academy Linux Admin I & II; RHCSA-eligible after the NTI program. Daily driver for every lab I build."><svg class="icon"><use href="#i-terminal"></use></svg>Red Hat Linux</button>
+          <button class="chip c-sys" aria-pressed="false" data-note="Windows Server Active Directory domain across 3 home-lab VMs: users, groups, permissions, domain administration."><svg class="icon"><use href="#i-server"></use></svg>Windows Server</button>
+          <button class="chip c-sys" aria-pressed="false" data-note="Built and administer a 3-VM AD domain — the identity backbone of my home lab."><svg class="icon"><use href="#i-user"></use></svg>Active Directory</button>
+          <button class="chip c-sys" aria-pressed="false" data-note="vSphere/ESXi virtualization in the NTI hybrid-cloud capstone: AWS + VMware + Red Hat in one architecture."><svg class="icon"><use href="#i-layers"></use></svg>VMware</button>
+          <button class="chip c-sys" aria-pressed="false" data-note="Containerized apps pushed to ECR and deployed through App Runner and Lambda pipelines."><svg class="icon"><use href="#i-box"></use></svg>Docker</button>
+          <button class="chip c-sys" aria-pressed="false" data-note="Ran containerized workloads on OpenShift during the 540-hour NTI Cloud Solutions Architect program."><svg class="icon"><use href="#i-cpu"></use></svg>OpenShift</button>
+          <button class="chip c-pro" aria-pressed="false" data-note="25–35 customer cases per day at Sutherland — hardware, software, network and account issues within SLA."><svg class="icon"><use href="#i-phone"></use></svg>Technical Support</button>
+        </div>
+      </div>
+    </div>
+    <div class="chip-console" aria-live="polite" data-reveal>
+      <span class="p">$</span>
+      <span id="chipNote" class="hint">click any tool — I’ll tell you what I built with it.</span>
+    </div>
+  </section>
+
+  <section id="past" class="wrap">
+    <div class="past-card" data-reveal>
+      <p class="kicker">The previous chapter</p>
+      <h3>Where I started</h3>
+      <p>Before narrowing toward infrastructure and cloud, I explored artificial intelligence, machine learning and data science — DEPI team leader, Harvard Aspire Leaders, WorldQuant applied data science, RLHF training at Outlier.AI, and more. The complete timeline, with every course and certificate, is in the experience log.</p>
+      <div class="hero-cta" style="margin:24px 0 0">
+        <a class="btn btn-ghost" href="experience.html#training">Browse trainings &amp; courses <svg class="icon"><use href="#i-arrow-right"></use></svg></a>
+        <a class="btn btn-ghost" href="certificates.html">Certificates <svg class="icon"><use href="#i-award"></use></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap">
+    <div class="sec-head" data-reveal>
+      <p class="kicker">Let’s connect</p>
+      <h2>Let’s build <span class="grad">something reliable</span>.</h2>
+      <p>I’m interested in opportunities around cloud infrastructure, AWS, systems engineering, and technical support. If you’d like to discuss a role, a project, or an idea — I’d be glad to hear from you.</p>
+    </div>
+    <div class="contact-grid" data-stagger>
+      <a class="btn btn-primary" href="mailto:mohamed.h.af.zaki@gmail.com">Email me <svg class="icon"><use href="#i-arrow-up-right"></use></svg></a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/mohamed-hany-zaki" target="_blank" rel="noopener">LinkedIn <svg class="icon"><use href="#i-arrow-up-right"></use></svg></a>
+      <a class="btn btn-ghost" href="https://github.com/SoulRe" target="_blank" rel="noopener">GitHub <svg class="icon"><use href="#i-arrow-up-right"></use></svg></a>
+      <a class="btn btn-ghost" href="tel:+201551301048">+20 155 130 1048 <svg class="icon"><use href="#i-phone"></use></svg></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="foot-note">© Mohamed Zaki — Designed around cloud, systems &amp; curiosity — Cairo, Egypt</p>
+    <div class="foot-links">
+      <a href="mailto:mohamed.h.af.zaki@gmail.com" aria-label="Email"><svg class="icon"><use href="#i-mail"></use></svg></a>
+      <a href="https://github.com/SoulRe" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon"><use href="#i-github"></use></svg></a>
+      <a href="https://linkedin.com/in/mohamed-hany-zaki" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"></use></svg></a>
+      <a href="tel:+201551301048" aria-label="Phone"><svg class="icon"><use href="#i-phone"></use></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/Flip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollToPlugin.min.js"></script>
+<script src="site.js"></script>
 <script>
-const projects=[
-{title:"Multi-region cloud network",category:"Networking",client:"Global Brands Group",stack:["Transit Gateway","Network Firewall","WAF","Route 53","RDS","S3"],summary:"A hub-and-spoke architecture with centralized traffic inspection and cross-region resilience.",points:["Deployed a multi-region hub-and-spoke design using Transit Gateway and multiple spoke VPCs.","Centralized inspection with AWS Network Firewall, NAT Gateway, Application Load Balancer, and WAF.","Configured Route 53 DNS routing, S3 replication, and cross-region RDS replication with a Multi-AZ standby for disaster recovery."],type:"network"},
-{title:"Secure IAM access framework",category:"Security",client:"AWS lab",stack:["IAM","MFA","Tag-based access","Roles"],summary:"Least-privilege access patterns, MFA enforcement, and role-based EC2 permissions.",points:["Designed an MFA enforcement policy and enabled MFA before applying the restriction to avoid locking out users.","Created read-only access and a DevOps role restricted to EC2 instances tagged Env=Dev.","Replaced stored access keys with an EC2 IAM role and tested access removal and restoration."],type:"security"},
-{title:"Scalable web application",category:"Cloud",client:"AWS lab",stack:["EC2","ALB","Auto Scaling","AMI","EBS"],summary:"A load-balanced Linux application fleet with scaling and recovery options.",points:["Launched Linux EC2 instances from a custom AMI behind an Application Load Balancer.","Configured Auto Scaling Groups and compared horizontal and vertical scaling approaches.","Simulated traffic spikes and documented the architecture."],type:"cloud"},
-{title:"Managed & serverless deployment",category:"Cloud",client:"AWS lab",stack:["Elastic Beanstalk","App Runner","Amplify","Lambda","API Gateway","ECR"],summary:"Explored multiple deployment paths and compared their trade-offs.",points:["Deployed with Elastic Beanstalk and App Runner, configuring health checks, HTTPS, and scaling.","Published a front end with Amplify and built serverless endpoints using Lambda and API Gateway.","Compared deployment models, cost, control, and Beanstalk update policies."],type:"cloud"},
-{title:"Agentless EC2 management",category:"Systems",client:"AWS lab",stack:["Systems Manager","Session Manager","Run Command","EventBridge"],summary:"Managed instances without SSH keys or an open port 22.",points:["Used an IAM role and Systems Manager Session Manager for remote shell access.","Installed and started Apache using Run Command.","Scheduled instance shutdowns with Systems Manager Automation and EventBridge."],type:"systems"},
-{title:"Global static content delivery",category:"Cloud",client:"AWS lab",stack:["S3","CloudFront","CloudWatch"],summary:"A secure content delivery path for static storefront assets.",points:["Stored assets in S3 and served them globally through CloudFront.","Restricted direct S3 access so content is delivered through CloudFront.","Created CloudWatch alarms for latency, request volume, and 4xx/5xx errors."],type:"cloud"},
-{title:"Shared storage & data transfer",category:"Systems",client:"AWS lab",stack:["EFS","DataSync","EC2","Security Groups"],summary:"Shared file storage across Availability Zones and a simulated migration.",points:["Mounted an EFS file system on two Linux instances in different Availability Zones.","Verified files written on one instance were visible on the other.","Moved simulated on-premises data into AWS with DataSync and compared it with Transfer Family."],type:"systems"},
-{title:"Multi-VPC & hybrid connectivity",category:"Networking",client:"AWS lab",stack:["VPC Peering","Transit Gateway","Client VPN","Site-to-Site VPN"],summary:"Private connectivity between VPCs and regions with VPN administrator access.",points:["Created non-overlapping VPC CIDRs and connected VPCs using peering and Transit Gateway.","Configured Client VPN access and Site-to-Site VPN connectivity between regions.","Tested end-to-end connectivity between instances across regions."],type:"network"},
-{title:"Network Firewall perimeter",category:"Security",client:"AWS lab",stack:["VPC","Network Firewall","Internet Gateway","Route Tables"],summary:"A subnet design that routes workload traffic through a firewall inspection layer.",points:["Created separate firewall, customer, and Internet Gateway subnets.","Configured route tables to force traffic through AWS Network Firewall.","Added security groups as a second layer and verified policies from test instances."],type:"security"},
-{title:"Active Directory home lab",category:"Systems",client:"Personal lab",stack:["Windows Server","Active Directory","Home Assistant","AnyDesk"],summary:"A small virtualized domain environment and hosted smart-home setup.",points:["Deployed a Windows Server Active Directory domain across three VMs.","Configured users, groups, permissions, and domain administration.","Maintained a hosted Home Assistant system with remote access."],type:"systems"},
-{title:"Hybrid cloud capstone",category:"Cloud",client:"NTI",stack:["AWS","VMware","Red Hat"],summary:"A team capstone bringing together cloud and virtualization concepts.",points:["Planned, built, and presented a hybrid cloud architecture with a small team.","Applied scalability, security, reliability, and cost-optimization practices."],type:"cloud"}
-];
-const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-function illustration(type,index){
- const palettes={network:["#b6f36b","#183b3d"],security:["#73dce7","#17353b"],cloud:["#b6f36b","#1b3540"],systems:["#c3a6ff","#282b48"]},[accent,bg]=palettes[type]||palettes.cloud;
- const nodes=type==="network"?[[80,65,"HUB"],[230,65,"VPC A"],[80,145,"VPC B"],[230,145,"VPC C"]]:type==="security"?[[155,50,"MFA"],[75,140,"ROLE"],[235,140,"POLICY"]]:type==="systems"?[[80,65,"SERVER"],[230,65,"SSM"],[155,150,"AUTOMATION"]]:[[80,65,"APP"],[230,65,"LOAD"],[155,150,"SCALE"]];
- return `<svg viewBox="0 0 310 210" role="img" aria-label="${type} architecture illustration"><defs><linearGradient id="g${index}" x1="0" y1="0" x2="1" y2="1"><stop stop-color="${accent}" stop-opacity=".25"/><stop offset="1" stop-color="${bg}" stop-opacity=".1"/></linearGradient></defs><path d="M0 0H310V210H0Z" fill="url(#g${index})"/><g stroke="${accent}" stroke-opacity=".65" stroke-width="1.5" fill="none"><path d="M155 105L80 65M155 105L230 65M155 105L80 145M155 105L230 145"/></g><circle cx="155" cy="105" r="42" fill="${bg}" stroke="${accent}" stroke-opacity=".8"/><text x="155" y="101" text-anchor="middle" fill="#f0f5f8" font-family="DM Mono" font-size="11">AWS</text><text x="155" y="117" text-anchor="middle" fill="${accent}" font-family="DM Mono" font-size="10">CLOUD</text>${nodes.map(([x,y,t])=>`<rect x="${x-37}" y="${y-16}" width="74" height="32" rx="6" fill="#101a26" stroke="${accent}" stroke-opacity=".7"/><text x="${x}" y="${y+4}" text-anchor="middle" fill="#dce7ed" font-family="DM Mono" font-size="10">${t}</text>`).join("")}</svg>`;
-}
-const grid=document.getElementById("projectsGrid");
-function render(filter="All"){const items=projects.filter(p=>filter==="All"||p.category===filter);grid.innerHTML=items.map(p=>{const i=projects.indexOf(p);return `<article class="project" tabindex="0" role="button" aria-label="View details: ${esc(p.title)}" data-index="${i}"><div class="project-art">${illustration(p.type,i)}</div><div class="project-body"><div class="project-meta"><span>${esc(p.category)}</span><span>${esc(p.client)}</span></div><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p><div class="chips">${p.stack.slice(0,4).map(x=>`<span class="chip">${esc(x)}</span>`).join("")}</div><span class="more">View project details ↗</span></div></article>`}).join("");document.getElementById("projectCount").textContent=items.length+" projects";if(window.animateCards&&arguments[1])window.animateCards()}
-render();
-document.getElementById("filters").addEventListener("click",e=>{const b=e.target.closest("button[data-filter]");if(!b)return;document.querySelectorAll(".filters button").forEach(x=>{x.classList.toggle("active",x===b);x.setAttribute("aria-pressed",x===b)});render(b.dataset.filter,true)});
-const dialog=document.getElementById("projectDialog"),dialogContent=document.getElementById("dialogContent");
-function openProject(i){const p=projects[i];dialogContent.innerHTML=`<div class="modal-art">${illustration(p.type,"m"+i)}</div><div class="modal-content"><button class="modal-close" type="button" onclick="document.getElementById('projectDialog').close()">Close ✕</button><div class="kicker">${esc(p.category)} — ${esc(p.client)}</div><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p><ul>${p.points.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><div class="chips">${p.stack.map(x=>`<span class="chip">${esc(x)}</span>`).join("")}</div></div>`;dialog.showModal()}
-grid.addEventListener("click",e=>{const c=e.target.closest("[data-index]");if(c)openProject(+c.dataset.index)});
-grid.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.matches("[data-index]")){e.preventDefault();openProject(+e.target.dataset.index)}});
-dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close()});
-/* Theme toggle */
-const themeBtn=document.getElementById("theme");
-function setTheme(t){document.documentElement.dataset.theme=t;themeBtn.textContent=t==="dark"?"☀":"☾";themeBtn.setAttribute("aria-label",t==="dark"?"Switch to light mode":"Switch to dark mode")}
-setTheme(document.documentElement.dataset.theme);
-themeBtn.addEventListener("click",()=>{const t=document.documentElement.dataset.theme==="dark"?"light":"dark";setTheme(t);try{localStorage.setItem("theme",t)}catch(e){}});
-/* Nav, progress, year */
-const navEl=document.getElementById("navlinks"),menuBtn=document.getElementById("menu");
-menuBtn.addEventListener("click",()=>{const o=navEl.classList.toggle("open");menuBtn.setAttribute("aria-expanded",o)});
-navEl.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navEl.classList.remove("open");menuBtn.setAttribute("aria-expanded","false")}));
-const progress=document.getElementById("progress");addEventListener("scroll",()=>{const h=document.documentElement.scrollHeight-innerHeight;progress.style.width=(h?scrollY/h*100:0)+"%"},{passive:true});
-document.getElementById("year").textContent=new Date().getFullYear();
-const navLinks=[...navEl.querySelectorAll("a")];
-const navObs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)navLinks.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+e.target.id))}),{rootMargin:"-35% 0px -55% 0px"});
-document.querySelectorAll("main section[id]").forEach(s=>navObs.observe(s));
-/* Desktop-only animation (GSAP). Phones/tablets and reduced-motion users get a static page. */
-if(window.gsap&&window.ScrollTrigger){
- gsap.registerPlugin(ScrollTrigger);
- const mm=gsap.matchMedia();
- mm.add("(min-width: 901px) and (prefers-reduced-motion: no-preference)",()=>{
-  const ease="power3.out";
-  gsap.from("header",{y:-70,opacity:0,duration:.8,ease});
-  gsap.from(".hero-text > *",{y:30,opacity:0,duration:.9,stagger:.1,ease,delay:.1});
-  gsap.from(".hero-art",{scale:.94,opacity:0,duration:1.1,ease,delay:.25});
-  gsap.to(".hero-art",{yPercent:-6,ease:"none",scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:.8}});
-  const reveal=(sel,vars,extra={})=>gsap.utils.toArray(sel).forEach(el=>gsap.from(el,{...vars,opacity:0,duration:.8,ease,...extra,scrollTrigger:{trigger:el,start:"top 88%",once:true}}));
-  reveal(".section-head > *",{y:22},{stagger:.1});
-  reveal(".panel",{y:34});
-  reveal(".project-tools",{y:20});
-  reveal(".event",{x:-26});
-  reveal(".skill-card",{y:40});
-  reveal(".earlier",{y:24});
-  reveal(".contact-box",{y:36});
-  reveal("footer",{y:14});
-  gsap.utils.toArray(".chips").forEach(c=>{if(c.closest(".project"))return;gsap.from(c.children,{y:12,opacity:0,duration:.5,stagger:.04,ease,scrollTrigger:{trigger:c,start:"top 90%",once:true}})});
-  gsap.utils.toArray(".skill-icon").forEach(el=>gsap.from(el,{scale:.5,rotate:-12,duration:.7,ease:"back.out(1.7)",scrollTrigger:{trigger:el,start:"top 90%",once:true}}));
-  const counters=[...document.querySelectorAll(".stat b")].filter(b=>/^\d+[%h]?$/.test(b.textContent.trim()));
-  const orig=counters.map(b=>b.textContent);
-  counters.forEach((b,i)=>{const n=parseInt(orig[i]),suf=orig[i].replace(/\d+/g,""),o={v:0};gsap.to(o,{v:n,duration:1.6,ease:"power2.out",onUpdate:()=>{b.textContent=Math.round(o.v)+suf},scrollTrigger:{trigger:b,start:"top 92%",once:true}})});
-  gsap.set(".project",{opacity:0,y:40});
-  ScrollTrigger.batch(".project",{start:"top 92%",once:true,onEnter:els=>gsap.to(els,{opacity:1,y:0,duration:.8,stagger:.09,ease,clearProps:"transform,opacity"})});
-  window.animateCards=()=>{gsap.fromTo(".project",{y:26,opacity:0},{y:0,opacity:1,duration:.55,stagger:.06,ease,clearProps:"transform,opacity"});ScrollTrigger.refresh()};
-  const words=["cloud","networks","systems","infrastructure"],el=document.getElementById("rotating");let wi=0;
-  const timer=setInterval(()=>{gsap.to(el,{opacity:0,y:-10,duration:.25,onComplete:()=>{wi=(wi+1)%words.length;el.textContent=words[wi];gsap.fromTo(el,{y:10,opacity:0},{y:0,opacity:1,duration:.35,ease})}})},2800);
-  return()=>{clearInterval(timer);window.animateCards=null;el.textContent="cloud";counters.forEach((b,i)=>b.textContent=orig[i]);gsap.set(".project",{clearProps:"all"})};
- });
-}
+(function () {
+  var frame = document.querySelector(".portrait"), img = document.querySelector(".portrait-img");
+  if (frame && img) {
+    var bad = function () { frame.classList.add("no-img"); };
+    if (img.getAttribute("src").indexOf("PASTE_DRIVE_FILE_ID_HERE") > -1) bad();
+    img.addEventListener("error", bad);
+  }
+  if (window.gsap && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    gsap.from(".portrait", { clipPath: "circle(0% at 50% 45%)", duration: 1.1, ease: "power3.inOut", delay: .35 });
+    gsap.to(".portrait-ring", { rotation: 360, duration: 16, repeat: -1, ease: "none" });
+    gsap.to(".p-badge", { y: -9, duration: 2.2, yoyo: true, repeat: -1, stagger: .35, ease: "sine.inOut" });
+  }
+  var note = document.getElementById("chipNote"), timer = null;
+  document.querySelectorAll(".chip[data-note]").forEach(function (ch) {
+    ch.addEventListener("click", function () {
+      document.querySelectorAll(".chip.is-active").forEach(function (c) { c.classList.remove("is-active"); c.setAttribute("aria-pressed", "false"); });
+      ch.classList.add("is-active"); ch.setAttribute("aria-pressed", "true");
+      note.classList.remove("hint");
+      var text = ch.dataset.note; clearInterval(timer); note.textContent = "";
+      var i = 0; timer = setInterval(function () { note.textContent = text.slice(0, ++i); if (i >= text.length) clearInterval(timer); }, 12);
+      if (window.gsap) gsap.fromTo(".chip-console", { boxShadow: "0 0 0 0 rgba(56,189,248,.35)" }, { boxShadow: "0 0 0 16px rgba(56,189,248,0)", duration: .6 });
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var rotor = document.getElementById("wordRotor");
+  if (!rotor || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var words = rotor.children, i = 0;
+  setInterval(function(){
+    words[i].classList.remove("on");
+    i = (i + 1) % words.length;
+    words[i].classList.add("on");
+  }, 2600);
+})();
 </script>
 </body>
 </html>
